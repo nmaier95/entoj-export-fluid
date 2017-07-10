@@ -19,7 +19,10 @@ class FluidRenderer extends Renderer
         let instances = nodeRenderers;
         if (!instances || !instances.length)
         {
-            instances = Object.keys(renderers).map((value) => new renderers[value]());
+            instances = Object.keys(renderers).map(function(name)
+            {
+                return new renderers[name]();
+            });
         }
         super(instances, options);
     }

@@ -5,11 +5,12 @@
  * @ignore
  */
 const NodeRenderer = require('entoj-system').export.renderer.NodeRenderer;
+const ErrorHandler = require('entoj-system').error.ErrorHandler;
 const co = require('co');
 
 
 /**
- * Render expressions used for e.g. in set tags
+ * Renders view helpers
  *
  * @memberOf export.renderer
  * @extends Base
@@ -47,7 +48,7 @@ class FluidFilterNodeRenderer extends NodeRenderer
         {
             let result = '';
             result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> f:' + node.name + '(';
+            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name + '(';
 
             if (node.arguments)
             {
@@ -66,7 +67,7 @@ class FluidFilterNodeRenderer extends NodeRenderer
 
             result+= ')';
             return result;
-        });
+        }).catch(ErrorHandler.handler(this));
         return promise;
     }
 }

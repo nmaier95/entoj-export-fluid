@@ -15,10 +15,5 @@ describe(FluidOutputNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    const options =
-    {
-        configurationClass: require(FLOW_SOURCE + '/export/FluidConfiguration.js').FluidConfiguration,
-        basePath: FLOW_FIXTURES + '/nodeRenderer'
-    };
-    nodeRendererSpec(FluidOutputNodeRenderer, 'export.renderer/FluidOutputNodeRenderer', undefined, options);
+    nodeRendererSpec(FluidOutputNodeRenderer, 'export.renderer/FluidOutputNodeRenderer', undefined, require('./Helper.js').options());
 });

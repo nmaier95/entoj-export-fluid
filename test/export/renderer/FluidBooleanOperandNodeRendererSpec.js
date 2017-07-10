@@ -15,10 +15,5 @@ describe(FluidBooleanOperandNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    const options =
-    {
-        configurationClass: require(FLOW_SOURCE + '/export/FluidConfiguration.js').FluidConfiguration,
-        basePath: FLOW_FIXTURES + '/nodeRenderer'
-    };
-    nodeRendererSpec(FluidBooleanOperandNodeRenderer, 'export.renderer/FluidBooleanOperandNodeRenderer', undefined, options);
+    nodeRendererSpec(FluidBooleanOperandNodeRenderer, 'export.renderer/FluidBooleanOperandNodeRenderer', undefined, require('./Helper.js').options());
 });

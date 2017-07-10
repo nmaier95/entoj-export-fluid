@@ -1,22 +1,22 @@
 'use strict';
 
 // Requirements
-const BaseNode = require('../../node/BaseNode.js').BaseNode;
-const BaseNodeRenderer = require('../BaseNodeRenderer.js').BaseNodeRenderer;
+const NodeListRenderer = require('entoj-system').export.renderer.NodeListRenderer;
+const ErrorHandler = require('entoj-system').error.ErrorHandler;
 const co = require('co');
 
 
 /**
- *
+ * Renders |default filter
  */
-class FluidDefaultFilterRenderer extends BaseNodeRenderer
+class FluidDefaultFilterRenderer extends NodeListRenderer
 {
     /**
      * @inheritDoc
      */
     static get className()
     {
-        return 'transformer.noderenderer.fluid/DefaultFilterRenderer';
+        return 'export.renderer/FluidDefaultFilterRenderer';
     }
 
 
@@ -25,7 +25,7 @@ class FluidDefaultFilterRenderer extends BaseNodeRenderer
      */
     willRender(node, configuration)
     {
-        return Promise.resolve(node instanceof BaseNode &&
+        return Promise.resolve(node &&
             node.is('FilterNode') &&
             node.name == 'default' &&
             node.parent &&
@@ -38,23 +38,34 @@ class FluidDefaultFilterRenderer extends BaseNodeRenderer
      */
     render(node, configuration)
     {
-        const scope = this;
+        if (!node || !configuration)
+        {
+            return Promise.resolve('');
+        }
         const promise = co(function*()
         {
             let result = '';
-            const value =  yield scope.renderer.renderNode(node.value, configuration);
-            let defaultValue = "''";
-            if (node.configuration.children.length)
+            result+= yield configuration.renderer.renderNode(node.value, configuration);
+            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name + '(';
+            result+= 'defaultValue';
+            result+= ':';
+            if (node.arguments && node.arguments.length == 1)
             {
-                defaultValue = yield scope.renderer.renderNode(node.configuration.children[0].value, configuration);
+                const argument = node.arguments[0];
+                result+= yield configuration.renderer.renderNode(argument.value, configuration);
             }
-            result+= value + ' -> e:default(defaultValue:' + defaultValue + ')';
+            else
+            {
+                result+= '\'\'';
+            }
+
+            result+= ')';
             return result;
-        });
+        }).catch(ErrorHandler.handler(this));
         return promise;
     }
 }
 
 
 // Exports
-module.exports.DefaultFilterRenderer = DefaultFilterRenderer;
+module.exports.FluidDefaultFilterRenderer = FluidDefaultFilterRenderer;

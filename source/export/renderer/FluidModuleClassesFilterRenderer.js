@@ -1,22 +1,22 @@
 'use strict';
 
 // Requirements
-const BaseNode = require('../../node/BaseNode.js').BaseNode;
-const BaseNodeRenderer = require('../BaseNodeRenderer.js').BaseNodeRenderer;
+const NodeListRenderer = require('entoj-system').export.renderer.NodeListRenderer;
+const ErrorHandler = require('entoj-system').error.ErrorHandler;
 const co = require('co');
 
 
 /**
- *
+ * Renders |moduleClasses filter
  */
-class FluidModuleClassesFilterRenderer extends BaseNodeRenderer
+class FluidModuleClassesFilterRenderer extends NodeListRenderer
 {
     /**
      * @inheritDoc
      */
     static get className()
     {
-        return 'transformer.renderer/FluidModuleClassesFilterRenderer';
+        return 'export.renderer/FluidModuleClassesFilterRenderer';
     }
 
 
@@ -25,7 +25,7 @@ class FluidModuleClassesFilterRenderer extends BaseNodeRenderer
      */
     willRender(node, configuration)
     {
-        return Promise.resolve(node instanceof BaseNode &&
+        return Promise.resolve(node &&
             node.is('FilterNode') &&
             node.name == 'moduleClasses');
     }
@@ -36,19 +36,30 @@ class FluidModuleClassesFilterRenderer extends BaseNodeRenderer
      */
     render(node, configuration)
     {
-        const scope = this;
+        if (!node || !configuration)
+        {
+            return Promise.resolve('');
+        }
         const promise = co(function*()
         {
             let result = '';
-            const modificators =  yield scope.renderer.renderNode(node.value, configuration);
-            let moduleclass= '\'\'';
-            if (node.configuration.children.length)
+            result+= yield configuration.renderer.renderNode(node.value, configuration);
+            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name + '(';
+            result+= 'moduleClass';
+            result+= ':';
+            if (node.arguments && node.arguments.length == 1)
             {
-                moduleclass= yield scope.renderer.renderNode(node.configuration.children[0].value, configuration);
+                const argument = node.arguments[0];
+                result+= yield configuration.renderer.renderNode(argument.value, configuration);
             }
-            result+= moduleclass + ' -> e:moduleClasses(modificators:' + modificators + ')';
+            else
+            {
+                result+= '\'\'';
+            }
+
+            result+= ')';
             return result;
-        });
+        }).catch(ErrorHandler.handler(this));
         return promise;
     }
 }

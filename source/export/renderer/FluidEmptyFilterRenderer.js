@@ -4,31 +4,31 @@
  * Requirements
  * @ignore
  */
-const BaseNode = require('../../node/BaseNode.js').BaseNode;
-const BaseNodeRenderer = require('../BaseNodeRenderer.js').BaseNodeRenderer;
+const NodeListRenderer = require('entoj-system').export.renderer.NodeListRenderer;
+const ErrorHandler = require('entoj-system').error.ErrorHandler;
 const co = require('co');
 
 
 /**
- *
+ * Renders |empty filters
  */
-class FluidEmptyFilterRenderer extends BaseNodeRenderer
+class FluidEmptyFilterRenderer extends NodeListRenderer
 {
     /**
-     * @inheritDoc
+     * @inheritDocs
      */
     static get className()
     {
-        return 'transformer.noderenderer.fluid/EmptyFilterRenderer';
+        return 'export.renderer/FluidEmptyFilterRenderer';
     }
 
 
     /**
      * @return {Promise<Boolean>}
      */
-    willRender(node, context)
+    willRender(node, configuration)
     {
-        return Promise.resolve(node instanceof BaseNode &&
+        return Promise.resolve(node &&
             node.is('FilterNode') &&
             (node.name == 'empty' || node.name == 'notempty') &&
             node.parent &&
@@ -39,9 +39,12 @@ class FluidEmptyFilterRenderer extends BaseNodeRenderer
     /**
      * @return {Promise<String>}
      */
-    render(node, context)
+    render(node, configuration)
     {
-        const scope = this;
+        if (!node || !configuration)
+        {
+            return Promise.resolve('');
+        }
         const promise = co(function*()
         {
             let result = '';
@@ -49,11 +52,11 @@ class FluidEmptyFilterRenderer extends BaseNodeRenderer
             {
                 result+= '!';
             }
-            result+= '{';
-            result+= yield scope.renderer.renderNode(node.value, context);
-            result+= '}';
+            //result+= '{';
+            result+= yield configuration.renderer.renderNode(node.value, configuration);
+            //result+= '}';
             return result;
-        });
+        }).catch(ErrorHandler.handler(this));
         return promise;
     }
 }
