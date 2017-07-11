@@ -4,6 +4,7 @@
 const Configuration = require('entoj-system').export.Configuration;
 const FluidModuleConfiguration = require('../configuration/FluidConfiguration.js').FluidConfiguration;
 const assertParameter = require('entoj-system').utils.assert.assertParameter;
+const urlify = require('entoj-system').utils.urls.urlify;
 
 
 /**
@@ -52,7 +53,7 @@ class FluidConfiguration extends Configuration
     refineMacroConfiguration(configuration)
     {
         configuration.fluid = this.fluidConfiguration;
-        configuration.partial = configuration.macro.name.replace(/_/g, '-');
+        configuration.partial = configuration.entity.id.category.pluralName + '/' + configuration.macro.name.replace(/_/g, '-');
         configuration.filename = 'Resources/Private/' + configuration.partial + '.html';
         return Promise.resolve(configuration);
     }
