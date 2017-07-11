@@ -15,7 +15,7 @@
   "dependencies": {
     "entoj-system": "^0.1.1",
     "entoj-html": "^0.1.0",
-    "lodash.isplainobject": "*"
+    "lodash.isplainobject": "^4.0.6"
   },
   "devDependencies": {
     "chai": "*",
