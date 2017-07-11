@@ -9,7 +9,7 @@ const co = require('co');
 
 
 /**
- *
+ * Renders a macro as a partial
  */
 class FluidMacroNodeRenderer extends NodeRenderer
 {
@@ -68,15 +68,10 @@ class FluidMacroNodeRenderer extends NodeRenderer
                                 parameter.defaultValue !== false &&
                                 parameter.defaultValue !== 'false')
                             {
-                                let parameterValue = parameter.defaultValue;
-                                if (parameter.type[0] == 'Enumeration')
-                                {
-                                    parameterValue = '\'' + parameterValue + '\'';
-                                }
                                 result+= '<e:variable name="' + parameter.name + '" ' +
                                     'value="{' + parameter.name + ' -> ' +
                                     configuration.fluidConfiguration.entojViewHelperNamespace +
-                                    ':default(defaultValue:' + parameterValue + ')}" />';
+                                    ':default(defaultValue:' + parameter.defaultValue + ')}" />';
                             }
                         }
                     }
