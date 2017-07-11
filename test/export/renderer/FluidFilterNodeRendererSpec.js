@@ -15,5 +15,5 @@ describe(FluidFilterNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidFilterNodeRenderer, 'export.renderer/FluidFilterNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidFilterNodeRenderer, 'export.renderer/FluidFilterNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

@@ -15,5 +15,5 @@ describe(FluidBooleanOperandNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidBooleanOperandNodeRenderer, 'export.renderer/FluidBooleanOperandNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidBooleanOperandNodeRenderer, 'export.renderer/FluidBooleanOperandNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

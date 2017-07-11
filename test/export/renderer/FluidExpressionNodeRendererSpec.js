@@ -15,5 +15,5 @@ describe(FluidExpressionNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidExpressionNodeRenderer, 'export.renderer/FluidExpressionNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidExpressionNodeRenderer, 'export.renderer/FluidExpressionNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

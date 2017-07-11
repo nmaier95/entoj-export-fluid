@@ -15,5 +15,5 @@ describe(FluidArrayNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidArrayNodeRenderer, 'export.renderer/FluidArrayNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidArrayNodeRenderer, 'export.renderer/FluidArrayNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

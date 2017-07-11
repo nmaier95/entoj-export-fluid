@@ -15,5 +15,5 @@ describe(FluidDefaultFilterRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidDefaultFilterRenderer, 'export.renderer/FluidDefaultFilterRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidDefaultFilterRenderer, 'export.renderer/FluidDefaultFilterRenderer', undefined, require('./RendererHelper.js').options());
 });

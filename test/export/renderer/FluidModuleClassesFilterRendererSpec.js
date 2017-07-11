@@ -15,5 +15,5 @@ describe(FluidModuleClassesFilterRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidModuleClassesFilterRenderer, 'export.renderer/FluidModuleClassesFilterRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidModuleClassesFilterRenderer, 'export.renderer/FluidModuleClassesFilterRenderer', undefined, require('./RendererHelper.js').options());
 });

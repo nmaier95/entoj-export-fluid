@@ -15,5 +15,5 @@ describe(FluidLiteralNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidLiteralNodeRenderer, 'export.renderer/FluidLiteralNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidLiteralNodeRenderer, 'export.renderer/FluidLiteralNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

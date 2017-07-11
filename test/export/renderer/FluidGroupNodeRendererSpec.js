@@ -15,5 +15,5 @@ describe(FluidGroupNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidGroupNodeRenderer, 'export.renderer/FluidGroupNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidGroupNodeRenderer, 'export.renderer/FluidGroupNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

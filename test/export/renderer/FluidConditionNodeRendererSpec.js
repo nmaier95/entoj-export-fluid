@@ -15,5 +15,5 @@ describe(FluidConditionNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidConditionNodeRenderer, 'export.renderer/FluidConditionNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidConditionNodeRenderer, 'export.renderer/FluidConditionNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

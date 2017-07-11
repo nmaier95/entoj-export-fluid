@@ -15,5 +15,5 @@ describe(FluidSetNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidSetNodeRenderer, 'export.renderer/FluidSetNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidSetNodeRenderer, 'export.renderer/FluidSetNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

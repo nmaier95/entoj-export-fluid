@@ -15,5 +15,5 @@ describe(FluidEmptyFilterRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidEmptyFilterRenderer, 'export.renderer/FluidEmptyFilterRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidEmptyFilterRenderer, 'export.renderer/FluidEmptyFilterRenderer', undefined, require('./RendererHelper.js').options());
 });

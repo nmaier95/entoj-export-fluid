@@ -15,5 +15,5 @@ describe(FluidForNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidForNodeRenderer, 'export.renderer/FluidForNodeRenderer', undefined, require('./Helper.js').options());
+    nodeRendererSpec(FluidForNodeRenderer, 'export.renderer/FluidForNodeRenderer', undefined, require('./RendererHelper.js').options());
 });

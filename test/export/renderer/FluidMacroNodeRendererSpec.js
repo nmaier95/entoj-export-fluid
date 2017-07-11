@@ -15,5 +15,5 @@ describe(FluidMacroNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidMacroNodeRenderer, 'export.renderer/FluidMacroNodeRenderer', undefined, require('./Helper.js').options(true));
+    nodeRendererSpec(FluidMacroNodeRenderer, 'export.renderer/FluidMacroNodeRenderer', undefined, require('./RendererHelper.js').options(true));
 });

@@ -15,5 +15,5 @@ describe(FluidCallNodeRenderer.className, function()
     /**
      * NodeRenderer Test
      */
-    nodeRendererSpec(FluidCallNodeRenderer, 'export.renderer/FluidCallNodeRenderer', undefined, require('./Helper.js').options(true));
+    nodeRendererSpec(FluidCallNodeRenderer, 'export.renderer/FluidCallNodeRenderer', undefined, require('./RendererHelper.js').options(true));
 });
