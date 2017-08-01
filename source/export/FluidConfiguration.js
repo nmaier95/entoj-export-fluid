@@ -2,9 +2,8 @@
 
 // Requirements
 const Configuration = require('entoj-system').export.Configuration;
-const FluidModuleConfiguration = require('../configuration/FluidConfiguration.js').FluidConfiguration;
+const FluidModuleConfiguration = require('../configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
 const assertParameter = require('entoj-system').utils.assert.assertParameter;
-const urlify = require('entoj-system').utils.urls.urlify;
 
 
 /**
@@ -50,10 +49,43 @@ class FluidConfiguration extends Configuration
     /**
      * @inheritDocs
      */
-    refineMacroConfiguration(configuration)
+    refineConfiguration(configuration)
     {
         configuration.fluid = this.fluidConfiguration;
-        configuration.partial = configuration.entity.id.category.pluralName + '/' + configuration.macro.name.replace(/_/g, '-');
+        if (configuration.macro)
+        {
+            if (this.settings.filename)
+            {
+                configuration.partial = '';
+                if (this.settings.filename.indexOf('/') === -1)
+                {
+                    //configuration.partial+= 'Templates/ContentElements/' + configuration.entity.id.category.pluralName + '/';
+                    configuration.partial+= 'Templates/ContentElements/';
+                }
+                configuration.partial+= (this.settings.filename.substr(0, this.settings.filename.lastIndexOf('.')) || this.settings.filename);
+            }
+            else
+            {
+                //configuration.partial = 'Templates/ContentElements/' + configuration.entity.id.category.pluralName + '/' + configuration.macro.name.replace(/_/g, '-');
+                configuration.partial = 'Templates/ContentElements/' + configuration.macro.name.replace(/_/g, '-');
+            }
+        }
+        else
+        {
+            if (this.settings.filename)
+            {
+                configuration.partial = '';
+                if (this.settings.filename.indexOf('/') === -1)
+                {
+                    configuration.partial+= 'Layouts/Page/';
+                }
+                configuration.partial+= (this.settings.filename.substr(0, this.settings.filename.lastIndexOf('.')) || this.settings.filename);
+            }
+            else
+            {
+                configuration.partial = 'Layouts/Page/' + configuration.entity.idString;
+            }
+        }
         configuration.filename = 'Resources/Private/' + configuration.partial + '.html';
         return Promise.resolve(configuration);
     }

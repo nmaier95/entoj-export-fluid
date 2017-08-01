@@ -8,7 +8,7 @@ const JinjaParser = require('entoj-system').export.parser.JinjaParser;
 const FluidRenderer = require('./FluidRenderer.js').FluidRenderer;
 const FluidTransformer = require('./FluidTransformer.js').FluidTransformer;
 const FluidConfiguration = require('./FluidConfiguration.js').FluidConfiguration;
-const FluidModuleConfiguration = require('../configuration/FluidConfiguration.js').FluidConfiguration;
+const FluidModuleConfiguration = require('../configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
 const assertParameter = require('entoj-system').utils.assert.assertParameter;
 
 

@@ -12,7 +12,7 @@ const assertParameter = require('entoj-system').utils.assert.assertParameter;
 /**
  * @memberOf configuration
  */
-class FluidConfiguration extends Base
+class FluidModuleConfiguration extends Base
 {
     /**
      * @param  {model.configuration.GlobalConfiguration} globalConfiguration
@@ -45,7 +45,7 @@ class FluidConfiguration extends Base
      */
     static get className()
     {
-        return 'configuration/FluidConfiguration';
+        return 'configuration/FluidModuleConfiguration';
     }
 
 
@@ -87,4 +87,4 @@ class FluidConfiguration extends Base
  * Exports
  * @ignore
  */
-module.exports.FluidConfiguration = FluidConfiguration;
+module.exports.FluidModuleConfiguration = FluidModuleConfiguration;

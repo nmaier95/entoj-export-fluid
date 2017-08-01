@@ -3,16 +3,16 @@
 /**
  * Requirements
  */
-const FluidConfiguration = require(FLOW_SOURCE + '/export/FluidConfiguration.js').FluidConfiguration;
+const FluidExporter = require(FLOW_SOURCE + '/export/FluidExporter.js').FluidExporter;
 const FluidModuleConfiguration = require(FLOW_SOURCE + '/configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
-const configurationSpec = require('entoj-system/test').export.ConfigurationShared;
+const exporterSpec = require('entoj-system/test').export.ExporterShared;
 const projectFixture = require('entoj-system/test').fixture.project;
 
 
 /**
  * Spec
  */
-describe(FluidConfiguration.className, function()
+describe(FluidExporter.className, function()
 {
     /**
      * Configuration Test
@@ -28,9 +28,9 @@ describe(FluidConfiguration.className, function()
         }
         else
         {
-            return [undefined, undefined, {}, undefined, undefined, undefined, fixture.globalRepository, fixture.buildConfiguration, fluidModuleConfiguration];
+            return [fixture.globalRepository, fixture.buildConfiguration, fluidModuleConfiguration];
         }
     }
 
-    configurationSpec(FluidConfiguration, 'export/FluidConfiguration', prepareParameters, { identifier: 'fluid' });
+    exporterSpec(FluidExporter, 'export/FluidExporter', prepareParameters);
 });

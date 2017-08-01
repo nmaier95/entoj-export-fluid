@@ -3,5 +3,6 @@
  */
 module.exports =
 {
-    RemoveLoadModelTransformer: require('entoj-system').export.transformer.RemoveLoadModelTransformer
+    FluidRemoveLoadModelTransformer: require('entoj-system').export.transformer.RemoveLoadModelTransformer,
+    FluidMapParametersTransformer: require('entoj-system').export.transformer.MapParametersTransformer
 };

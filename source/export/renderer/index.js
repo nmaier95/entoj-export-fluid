@@ -10,6 +10,7 @@ module.exports =
 
     // Standards
     FluidArrayNodeRenderer: require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
+    FluidBlockNodeRenderer: require('./FluidBlockNodeRenderer.js').FluidBlockNodeRenderer,
     FluidBooleanOperandNodeRenderer: require('./FluidBooleanOperandNodeRenderer.js').FluidBooleanOperandNodeRenderer,
     FluidCallNodeRenderer: require('./FluidCallNodeRenderer.js').FluidCallNodeRenderer,
     FluidComplexVariableNodeRenderer: require('./FluidComplexVariableNodeRenderer.js').FluidComplexVariableNodeRenderer,

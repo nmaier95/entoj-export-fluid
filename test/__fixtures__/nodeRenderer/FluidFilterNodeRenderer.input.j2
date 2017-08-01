@@ -1,2 +1,4 @@
-{{ model|load }}
-{{ model|default('param', 2) }}
+{{ model.text|foo }}
+{{ model.text|foo('#Lipsum', 2) }}
+{{ model.text|foo('x')|bar('y') }}
+{{ ['one', two]|foo }}

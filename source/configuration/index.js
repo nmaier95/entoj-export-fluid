@@ -3,5 +3,5 @@
  */
 module.exports =
 {
-    FluidConfiguration: require('./FluidConfiguration.js').FluidConfiguration
+    FluidModuleConfiguration: require('./FluidModuleConfiguration.js').FluidModuleConfiguration
 };

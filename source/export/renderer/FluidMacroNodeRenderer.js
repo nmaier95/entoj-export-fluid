@@ -5,6 +5,7 @@
  * @ignore
  */
 const NodeRenderer = require('entoj-system').export.renderer.NodeRenderer;
+const trimQuotes = require('entoj-system').utils.string.trimQuotes;
 const co = require('co');
 
 
@@ -71,7 +72,7 @@ class FluidMacroNodeRenderer extends NodeRenderer
                                 let defaultValue = parameter.defaultValue;
                                 if (parameter.type[0] == 'Enumeration')
                                 {
-                                    defaultValue = '\'' + defaultValue + '\'';
+                                    defaultValue = '\'' + trimQuotes(defaultValue) + '\'';
                                 }
                                 result+= '<e:variable name="' + parameter.name + '" ' +
                                     'value="{' + parameter.name + ' -> ' +
