@@ -7,7 +7,7 @@
 const ExportCommand = require('entoj-system').command.ExportCommand;
 const Context = require('entoj-system').application.Context;
 const FluidExportTask = require('../task/FluidExportTask.js').FluidExportTask;
-const FluidConfiguration = require('../configuration/FluidConfiguration.js').FluidConfiguration;
+const FluidModuleConfiguration = require('../configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
 const BeautifyHtmlTask = require('entoj-html').task.BeautifyHtmlTask;
 
 
@@ -25,7 +25,7 @@ class FluidExportCommand extends ExportCommand
 
         // Assign options
         this._exportName = 'fluid';
-        this._exportConfigurationClass = FluidConfiguration;
+        this._moduleConfigurationClass = FluidModuleConfiguration;
         this._exportTaskClass = FluidExportTask;
         this._loggerPrefix = 'command.export.fluid';
     }
@@ -54,6 +54,10 @@ class FluidExportCommand extends ExportCommand
      */
     addTasks(task, mapping)
     {
+        if (!task)
+        {
+            return Promise.resolve();
+        }
         return Promise.resolve(task.pipe(this.context.di.create(BeautifyHtmlTask, mapping)));
     }
 }
