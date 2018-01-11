@@ -4,6 +4,7 @@
 const Configuration = require('entoj-system').export.Configuration;
 const FluidModuleConfiguration = require('../configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
 const assertParameter = require('entoj-system').utils.assert.assertParameter;
+const uppercaseFirst = require('entoj-system').utils.string.uppercaseFirst;
 
 
 /**
@@ -54,20 +55,21 @@ class FluidConfiguration extends Configuration
         configuration.fluid = this.fluidConfiguration;
         if (configuration.macro)
         {
+            const basePath = (configuration.type && configuration.type == 'contentelement')
+                ? 'Templates/ContentElement/'
+                : 'Partials/' + configuration.entity.id.category.pluralName.replace(/\s/g, '') + '/';
             if (this.settings.filename)
             {
                 configuration.partial = '';
                 if (this.settings.filename.indexOf('/') === -1)
                 {
-                    //configuration.partial+= 'Templates/ContentElements/' + configuration.entity.id.category.pluralName + '/';
-                    configuration.partial+= 'Templates/ContentElements/';
+                    configuration.partial+= basePath;
                 }
                 configuration.partial+= (this.settings.filename.substr(0, this.settings.filename.lastIndexOf('.')) || this.settings.filename);
             }
             else
             {
-                //configuration.partial = 'Templates/ContentElements/' + configuration.entity.id.category.pluralName + '/' + configuration.macro.name.replace(/_/g, '-');
-                configuration.partial = 'Templates/ContentElements/' + configuration.macro.name.replace(/_/g, '-');
+                configuration.partial = basePath + uppercaseFirst(configuration.macro.name.replace(/^[a-z]_/g, ''));
             }
         }
         else
