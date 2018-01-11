@@ -2,7 +2,7 @@
 
 // Requirements
 const Transformer = require('entoj-system').export.Transformer;
-const transformers = require('./transformer/index.js');
+
 
 /**
  * @memberOf export
@@ -11,24 +11,20 @@ const transformers = require('./transformer/index.js');
 class FluidTransformer extends Transformer
 {
     /**
-     * @ignore
+     * @inheritDocs
      */
-    constructor()
+    static get className()
     {
-        const instances = Object.keys(transformers).map(function(name)
-        {
-            return new transformers[name]();
-        });
-        super(instances);
+        return 'export/FluidTransformer';
     }
 
 
     /**
      * @inheritDocs
      */
-    static get className()
+    static get injections()
     {
-        return 'export/FluidTransformer';
+        return { 'parameters': ['export/FluidTransformer.nodeTransformers'] };
     }
 }
 

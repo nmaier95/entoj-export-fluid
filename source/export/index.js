@@ -7,5 +7,6 @@ module.exports =
     FluidExporter: require('./FluidExporter.js').FluidExporter,
     FluidRenderer: require('./FluidRenderer.js').FluidRenderer,
     FluidTransformer: require('./FluidTransformer.js').FluidTransformer,
-    renderer: require('./renderer/index.js')
+    renderer: require('./renderer/index.js'),
+    transformer: require('./transformer/index.js')
 };
