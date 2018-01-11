@@ -30,5 +30,35 @@ module.exports =
     FluidTextNodeRenderer: require('entoj-system').export.renderer.TextNodeRenderer,
 
     // Fallback
-    FluidAnyNodeRenderer: require('entoj-system').export.renderer.AnyNodeRenderer
+    FluidAnyNodeRenderer: require('entoj-system').export.renderer.AnyNodeRenderer,
+
+    // Renderers
+    rendererList:
+    [
+        // Filters
+        require('./FluidDefaultFilterRenderer.js').FluidDefaultFilterRenderer,
+        require('./FluidEmptyFilterRenderer.js').FluidEmptyFilterRenderer,
+        require('./FluidModuleClassesFilterRenderer.js').FluidModuleClassesFilterRenderer,
+
+        // Standards
+        require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
+        require('./FluidBlockNodeRenderer.js').FluidBlockNodeRenderer,
+        require('./FluidBooleanOperandNodeRenderer.js').FluidBooleanOperandNodeRenderer,
+        require('./FluidCallNodeRenderer.js').FluidCallNodeRenderer,
+        require('./FluidComplexVariableNodeRenderer.js').FluidComplexVariableNodeRenderer,
+        require('./FluidConditionNodeRenderer.js').FluidConditionNodeRenderer,
+        require('./FluidExpressionNodeRenderer.js').FluidExpressionNodeRenderer,
+        require('./FluidFilterNodeRenderer.js').FluidFilterNodeRenderer,
+        require('./FluidForNodeRenderer.js').FluidForNodeRenderer,
+        require('./FluidGroupNodeRenderer.js').FluidGroupNodeRenderer,
+        require('./FluidIfNodeRenderer.js').FluidIfNodeRenderer,
+        require('./FluidLiteralNodeRenderer.js').FluidLiteralNodeRenderer,
+        require('./FluidMacroNodeRenderer.js').FluidMacroNodeRenderer,
+        require('./FluidOperandNodeRenderer.js').FluidOperandNodeRenderer,
+        require('./FluidOutputNodeRenderer.js').FluidOutputNodeRenderer,
+        require('./FluidSetNodeTenaryRenderer.js').FluidSetNodeTenaryRenderer,
+        require('./FluidSetNodeRenderer.js').FluidSetNodeRenderer,
+        require('./FluidVariableNodeRenderer.js').FluidVariableNodeRenderer,
+        require('entoj-system').export.renderer.TextNodeRenderer
+    ]
 };
