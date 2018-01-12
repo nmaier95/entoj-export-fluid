@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidConditionNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidConditionNodeRenderer.js').FluidConditionNodeRenderer;
+const FluidConditionNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidConditionNodeRenderer.js').FluidConditionNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

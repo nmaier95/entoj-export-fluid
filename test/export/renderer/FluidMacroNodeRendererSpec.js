@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidMacroNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidMacroNodeRenderer.js').FluidMacroNodeRenderer;
+const FluidMacroNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidMacroNodeRenderer.js').FluidMacroNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

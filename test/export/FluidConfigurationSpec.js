@@ -3,8 +3,8 @@
 /**
  * Requirements
  */
-const FluidConfiguration = require(FLOW_SOURCE + '/export/FluidConfiguration.js').FluidConfiguration;
-const FluidModuleConfiguration = require(FLOW_SOURCE + '/configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
+const FluidConfiguration = require(FLUID_SOURCE + '/export/FluidConfiguration.js').FluidConfiguration;
+const FluidModuleConfiguration = require(FLUID_SOURCE + '/configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
 const configurationSpec = require('entoj-system/test').export.ConfigurationShared;
 const projectFixture = require('entoj-system/test').fixture.project;
 

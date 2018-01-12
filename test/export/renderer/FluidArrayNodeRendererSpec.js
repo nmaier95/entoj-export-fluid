@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidArrayNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidArrayNodeRenderer.js').FluidArrayNodeRenderer;
+const FluidArrayNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidArrayNodeRenderer.js').FluidArrayNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

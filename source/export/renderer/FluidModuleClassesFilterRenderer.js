@@ -4,6 +4,8 @@
 const NodeListRenderer = require('entoj-system').export.renderer.NodeListRenderer;
 const ErrorHandler = require('entoj-system').error.ErrorHandler;
 const co = require('co');
+const VinylFile = require('vinyl');
+
 
 
 /**
@@ -17,6 +19,21 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
     static get className()
     {
         return 'export.renderer/FluidModuleClassesFilterRenderer';
+    }
+
+
+    /**
+     * @inheritDocs
+     */
+    createAdditionalFiles(configuration)
+    {
+        const result = '<f:for each="{types}" as="type"><f:if condition="{type}">{moduleClass}--{type}} </f:if></f:for>';
+        const file = new VinylFile(
+            {
+                path: 'Resources/Private/Partials/Helper/ModuleClassesFilter.html',
+                contents: new Buffer(result)
+            });
+        return Promise.resolve([file]);
     }
 
 
@@ -42,22 +59,18 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
         }
         const promise = co(function*()
         {
-            let result = '';
-            result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name + '(';
-            result+= 'moduleClass';
-            result+= ':';
+            const types = node.value.is('VariableNode')
+                ? node.value.fields.join('.')
+                : yield configuration.renderer.renderNode(node.value, configuration);
+            let moduleClass = '\'\'';
             if (node.arguments && node.arguments.length == 1)
             {
                 const argument = node.arguments[0];
-                result+= yield configuration.renderer.renderNode(argument.value, configuration);
+                moduleClass = yield configuration.renderer.renderNode(argument.value, configuration);
             }
-            else
-            {
-                result+= '\'\'';
-            }
-
-            result+= ')';
+            let result = '';
+            result+= '{f:render(partial: \'Helper/ModuleClassesFilter\', ';
+            result+= 'arguments:{types: ' + types + ', moduleClass: ' + moduleClass + '})}';
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;

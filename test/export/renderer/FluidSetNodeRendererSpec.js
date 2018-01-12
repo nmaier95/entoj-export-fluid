@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidSetNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidSetNodeRenderer.js').FluidSetNodeRenderer;
+const FluidSetNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidSetNodeRenderer.js').FluidSetNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

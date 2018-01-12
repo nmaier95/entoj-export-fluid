@@ -57,9 +57,8 @@ class FluidMacroNodeRenderer extends NodeRenderer
                     {
                         if (parameter.name === 'model')
                         {
-                            result+= '<e:variable name="model" value="{model -> ' +
-                                configuration.fluidConfiguration.entojViewHelperNamespace +
-                                ':default(defaultValue:data)}" />';
+                            // Disabled for now
+                            //result+= '<f:variable name="model" value="{model -> f:or(alternative: data)}" />';
                         }
                         else
                         {
@@ -74,10 +73,7 @@ class FluidMacroNodeRenderer extends NodeRenderer
                                 {
                                     defaultValue = '\'' + trimQuotes(defaultValue) + '\'';
                                 }
-                                result+= '<e:variable name="' + parameter.name + '" ' +
-                                    'value="{' + parameter.name + ' -> ' +
-                                    configuration.fluidConfiguration.entojViewHelperNamespace +
-                                    ':default(defaultValue:' + defaultValue + ')}" />';
+                                result+= '<f:variable name="' + parameter.name + '" value="{' + parameter.name + ' -> f:or(alternative: ' + defaultValue + ')}" />';
                             }
                         }
                     }

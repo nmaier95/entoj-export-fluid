@@ -33,6 +33,24 @@ Lints all source files
 npm run lint
 ```
 
+{
+    "export":
+    {
+        "fluid":
+        [
+            {
+                "mapping":
+                {
+                    "variables":
+                    {
+                        "text": "bodytext"
+                    }
+                }
+            }
+        ]
+    }
+}
+
 ---
 
 ### Licence

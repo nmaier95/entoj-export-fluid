@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidCallNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidCallNodeRenderer.js').FluidCallNodeRenderer;
+const FluidCallNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidCallNodeRenderer.js').FluidCallNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

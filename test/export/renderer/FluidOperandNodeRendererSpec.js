@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidOperandNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidOperandNodeRenderer.js').FluidOperandNodeRenderer;
+const FluidOperandNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidOperandNodeRenderer.js').FluidOperandNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidIfNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidIfNodeRenderer.js').FluidIfNodeRenderer;
+const FluidIfNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidIfNodeRenderer.js').FluidIfNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

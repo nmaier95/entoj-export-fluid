@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidEmptyFilterRenderer = require(FLOW_SOURCE + '/export/renderer/FluidEmptyFilterRenderer.js').FluidEmptyFilterRenderer;
+const FluidEmptyFilterRenderer = require(FLUID_SOURCE + '/export/renderer/FluidEmptyFilterRenderer.js').FluidEmptyFilterRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

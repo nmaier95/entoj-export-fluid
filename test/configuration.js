@@ -4,9 +4,9 @@
  * Configure path
  */
 const path = require('path');
-global.FLOW_SOURCE = path.resolve(__dirname + '/../source');
-global.FLOW_FIXTURES = path.resolve(__dirname + '/__fixtures__');
-global.FLOW_TEST = __dirname;
+global.FLUID_SOURCE = path.resolve(__dirname + '/../source');
+global.FLUID_FIXTURES = path.resolve(__dirname + '/__fixtures__');
+global.FLUID_TEST = __dirname;
 
 
 /**

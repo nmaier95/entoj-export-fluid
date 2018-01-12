@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidBooleanOperandNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidBooleanOperandNodeRenderer.js').FluidBooleanOperandNodeRenderer;
+const FluidBooleanOperandNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidBooleanOperandNodeRenderer.js').FluidBooleanOperandNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

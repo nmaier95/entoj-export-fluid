@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidModuleClassesFilterRenderer = require(FLOW_SOURCE + '/export/renderer/FluidModuleClassesFilterRenderer.js').FluidModuleClassesFilterRenderer;
+const FluidModuleClassesFilterRenderer = require(FLUID_SOURCE + '/export/renderer/FluidModuleClassesFilterRenderer.js').FluidModuleClassesFilterRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

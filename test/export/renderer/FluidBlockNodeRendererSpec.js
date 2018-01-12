@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidBlockNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidBlockNodeRenderer.js').FluidBlockNodeRenderer;
+const FluidBlockNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidBlockNodeRenderer.js').FluidBlockNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

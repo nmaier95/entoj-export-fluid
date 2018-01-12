@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidLiteralNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidLiteralNodeRenderer.js').FluidLiteralNodeRenderer;
+const FluidLiteralNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidLiteralNodeRenderer.js').FluidLiteralNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

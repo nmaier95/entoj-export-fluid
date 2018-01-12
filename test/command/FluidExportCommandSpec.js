@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidExportCommand = require(FLOW_SOURCE + '/command/FluidExportCommand.js').FluidExportCommand;
+const FluidExportCommand = require(FLUID_SOURCE + '/command/FluidExportCommand.js').FluidExportCommand;
 const exportCommandSpec = require('entoj-system/test').command.ExportCommandShared;
 const projectFixture = require('entoj-system/test').fixture.project;
 

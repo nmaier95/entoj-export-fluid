@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidExpressionNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidExpressionNodeRenderer.js').FluidExpressionNodeRenderer;
+const FluidExpressionNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidExpressionNodeRenderer.js').FluidExpressionNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

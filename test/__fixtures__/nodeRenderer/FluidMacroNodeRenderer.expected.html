@@ -1,2 +1,2 @@
-<!-- macro m_teaser default values --><e:variable name="type" value="{type -> e:default(defaultValue:'content')}" /><e:variable name="model" value="{model -> e:default(defaultValue:data)}" /><!-- macro m_teaser body -->
-<!-- macro e_headline default values --><e:variable name="level" value="{level -> e:default(defaultValue:1)}" /><e:variable name="skin" value="{skin -> e:default(defaultValue:'light')}" /><!-- macro e_headline body -->
+<!-- macro m_teaser default values --><f:variable name="type" value="{type -> f:or(alternative: 'content')}" /><!-- macro m_teaser body -->
+<!-- macro e_headline default values --><f:variable name="level" value="{level -> f:or(alternative: 1)}" /><f:variable name="skin" value="{skin -> f:or(alternative: 'light')}" /><!-- macro e_headline body -->

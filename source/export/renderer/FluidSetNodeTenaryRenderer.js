@@ -47,7 +47,7 @@ class FluidSetNodeTenaryRenderer extends NodeRenderer
             result+= yield configuration.renderer.renderNode(ifNode.condition, configuration);
             result+= '">';
             result+= '<f:then>';
-            result+= '<e:variable';
+            result+= '<f:variable';
             result+= ' name="';
             result+= yield configuration.renderer.renderNode(node.variable, configuration);
             result+= '" value="';
@@ -55,7 +55,7 @@ class FluidSetNodeTenaryRenderer extends NodeRenderer
             result+= '" />';
             result+= '</f:then>';
             result+= '<f:else>';
-            result+= '<e:variable';
+            result+= '<f:variable';
             result+= ' name="';
             result+= yield configuration.renderer.renderNode(node.variable, configuration);
             result+= '" value="';

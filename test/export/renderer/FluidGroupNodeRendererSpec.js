@@ -3,7 +3,7 @@
 /**
  * Requirements
  */
-const FluidGroupNodeRenderer = require(FLOW_SOURCE + '/export/renderer/FluidGroupNodeRenderer.js').FluidGroupNodeRenderer;
+const FluidGroupNodeRenderer = require(FLUID_SOURCE + '/export/renderer/FluidGroupNodeRenderer.js').FluidGroupNodeRenderer;
 const nodeRendererSpec = require('entoj-system/test').export.NodeRendererShared;
 
 

@@ -52,7 +52,7 @@ class FluidCallNodeRenderer extends NodeRenderer
             {
                 throw new MissingConfigurationError('CallNodeRenderer::render - no configuration for macro ' + node.name + ' found.');
             }
-            result+= '<f:render partial="' + config.partial + '"';
+            result+= '<f:render partial="' + config.partial.replace('Partials/', '') + '"';
             if (node.arguments)
             {
                 result+= ' arguments="{';

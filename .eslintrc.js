@@ -23,9 +23,9 @@ module.exports = {
     },
     "globals": {
         "expect": true,
-        "FLOW_SOURCE": true,
-        "FLOW_TEST": true,
-        "FLOW_FIXTURES": true
+        "FLUID_SOURCE": true,
+        "FLUID_TEST": true,
+        "FLUID_FIXTURES": true
     },
     "extends": "eslint:recommended"
 };

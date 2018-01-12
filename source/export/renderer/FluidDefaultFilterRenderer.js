@@ -46,19 +46,15 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
         {
             let result = '';
             result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name + '(';
-            result+= 'defaultValue';
-            result+= ':';
-            if (node.arguments && node.arguments.length == 1)
+            result+= ' -> f:or(alternative:';
+            if (node.arguments.length)
             {
-                const argument = node.arguments[0];
-                result+= yield configuration.renderer.renderNode(argument.value, configuration);
+                result+= yield configuration.renderer.renderNode(node.arguments[0].value, configuration);
             }
             else
             {
                 result+= '\'\'';
             }
-
             result+= ')';
             return result;
         }).catch(ErrorHandler.handler(this));
