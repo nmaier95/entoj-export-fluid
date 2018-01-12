@@ -27,7 +27,7 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
      */
     createAdditionalFiles(configuration)
     {
-        const result = '<f:for each="{types}" as="type"><f:if condition="{type}">{moduleClass}--{type}} </f:if></f:for>';
+        const result = '{moduleClass} <f:for each="{types}" as="type"><f:if condition="{type}">{moduleClass}--{type} </f:if></f:for>';
         const file = new VinylFile(
             {
                 path: 'Resources/Private/Partials/Helper/ModuleClassesFilter.html',

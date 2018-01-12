@@ -48,25 +48,31 @@ class FluidVariableNodeRenderer extends NodeRenderer
         // When condition
         if (node.isChildOf(['ConditionNode']))
         {
+            //result+='>CN<';
             useCurly = true;
         }
         // When expression with a string literal
         if (node.isChildOf(['ExpressionNode']) &&
             node.parent.find('LiteralNode', { valueType: 'string' }))
         {
+            //result+='>LN<';
             useCurly = true;
         }
         // When expression without an operand and not a parameter
         if (node.isChildOf(['ExpressionNode']) &&
+            !node.isChildOf(['ArrayNode']) &&
             !node.parent.find('OperandNode') &&
+            !node.parent.isChildOf('ArgumentNode') &&
             !node.parent.isChildOf('ParameterNode'))
         {
+            //result+='>ON<';
             useCurly = true;
         }
 
         // Add curly
         if (useCurly)
         {
+            //result+='>VAR<';
             result+= '{';
         }
 

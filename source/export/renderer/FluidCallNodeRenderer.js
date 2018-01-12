@@ -18,7 +18,7 @@ const co = require('co');
 class FluidCallNodeRenderer extends NodeRenderer
 {
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get className()
     {
@@ -27,7 +27,26 @@ class FluidCallNodeRenderer extends NodeRenderer
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
+     */
+    needsEval(node)
+    {
+        // When expression with a string literal
+        if (node.find('LiteralNode', { valueType: 'string' }))
+        {
+            return true;
+        }
+        // When expression without an operand and not a parameter
+        if (node.find('OperandNode'))
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * @inheritDoc
      */
     willRender(node, configuration)
     {
@@ -44,6 +63,7 @@ class FluidCallNodeRenderer extends NodeRenderer
         {
             return Promise.resolve('');
         }
+        const scope = this;
         const promise = co(function*()
         {
             let result = '';
@@ -59,10 +79,17 @@ class FluidCallNodeRenderer extends NodeRenderer
                 for (let index = 0; index < node.arguments.length; index++)
                 {
                     const param = node.arguments[index];
+                    const needsEval = scope.needsEval(param);
                     result+= param.name + ': ';
-                    result+= '\'';
+                    if (needsEval)
+                    {
+                        result+= '\'';
+                    }
                     result+= yield configuration.renderer.renderNode(param.value, configuration);
-                    result+= '\'';
+                    if (needsEval)
+                    {
+                        result+= '\'';
+                    }
                     if (index < node.arguments.length - 1)
                     {
                         result+= ', ';
