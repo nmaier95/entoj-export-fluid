@@ -16,6 +16,7 @@
     "co": "^4.6.0",
     "entoj-html": "^0.2.2",
     "entoj-system": "^0.2.7",
+    "lodash.camelcase": "^4.3.0",
     "lodash.isplainobject": "^4.0.6"
   },
   "devDependencies": {

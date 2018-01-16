@@ -5,6 +5,7 @@ const Configuration = require('entoj-system').export.Configuration;
 const FluidModuleConfiguration = require('../configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
 const assertParameter = require('entoj-system').utils.assert.assertParameter;
 const uppercaseFirst = require('entoj-system').utils.string.uppercaseFirst;
+const camelCase = require('lodash.camelcase');
 
 
 /**
@@ -69,7 +70,7 @@ class FluidConfiguration extends Configuration
             }
             else
             {
-                configuration.partial = basePath + uppercaseFirst(configuration.macro.name.replace(/^[a-z]_/g, ''));
+                configuration.partial = basePath + uppercaseFirst(camelCase(configuration.macro.name.replace(/^[a-z]_/g, '')));
             }
         }
         else
