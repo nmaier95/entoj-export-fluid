@@ -44,7 +44,7 @@ class FluidLiteralNodeRenderer extends NodeRenderer
         if ((node.isChildOf(['ConditionNode', 'ArrayNode', 'ParameterNode'])) &&
              node.valueType == 'string')
         {
-            result+= '\'' + node.value.replace(/\"/g, '\\"') + '\'';
+            result+= '\'' + node.value.replace(/"/g, '\\"') + '\'';
         }
         else
         {
