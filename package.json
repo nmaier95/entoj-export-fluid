@@ -1,9 +1,9 @@
 {
   "name": "entoj-export-fluid",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "engines": {
-    "node": "6.x"
+    "node": ">=6.x"
   },
   "main": "source/index.js",
   "scripts": {
