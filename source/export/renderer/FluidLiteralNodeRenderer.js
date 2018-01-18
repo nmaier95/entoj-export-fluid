@@ -46,6 +46,10 @@ class FluidLiteralNodeRenderer extends NodeRenderer
         {
             result+= '\'' + node.value.replace(/"/g, '\\"') + '\'';
         }
+        else if (node.valueType == 'string')
+        {
+            result+= node.value.replace(/"/g, '&quot;');
+        }
         else
         {
             result+= node.value;
