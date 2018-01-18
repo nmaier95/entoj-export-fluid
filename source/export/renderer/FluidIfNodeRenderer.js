@@ -60,27 +60,38 @@ class FluidIfNodeRenderer extends NodeRenderer
                 result+= yield configuration.renderer.renderList(node.elseChildren, configuration);
                 result+= ')';
             }
-            // If ...
-            else if (!node.elseChildren.length)
-            {
-                result+= '<f:if condition="';
-                result+= yield configuration.renderer.renderNode(node.condition, configuration);
-                result+= '">';
-                result+= yield configuration.renderer.renderList(node.children, configuration);
-                result+= '</f:if>';
-            }
-            // If ... else ...
+            // if .... else if .... else
             else
             {
                 result+= '<f:if condition="';
                 result+= yield configuration.renderer.renderNode(node.condition, configuration);
                 result+= '">';
-                result+= '<f:then>';
+                if (node.elseChildren.length || node.elseIfChildren.length)
+                {
+                    result+= '<f:then>';
+                }
                 result+= yield configuration.renderer.renderList(node.children, configuration);
-                result+= '</f:then>';
-                result+= '<f:else>';
-                result+= yield configuration.renderer.renderList(node.elseChildren, configuration);
-                result+= '</f:else>';
+                if (node.elseChildren.length || node.elseIfChildren.length)
+                {
+                    result+= '</f:then>';
+                }
+                if (node.elseIfChildren.length)
+                {
+                    for (const elseIfNode of node.elseIfChildren)
+                    {
+                        result+= '<f:else if="';
+                        result+= yield configuration.renderer.renderNode(elseIfNode.condition, configuration);
+                        result+= '">';
+                        result+= yield configuration.renderer.renderList(elseIfNode.children, configuration);
+                        result+= '</f:else>';
+                    }
+                }
+                if (node.elseChildren.length)
+                {
+                    result+= '<f:else>';
+                    result+= yield configuration.renderer.renderList(node.elseChildren, configuration);
+                    result+= '</f:else>';
+                }
                 result+= '</f:if>';
             }
             return result;

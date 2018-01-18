@@ -1,2 +1,9 @@
 <f:if condition="{model.copy} || {model.headline} == ''">COPY</f:if>
 <f:if condition="{model.copy}"><f:then>COPY</f:then><f:else>NOCOPY</f:else></f:if>
+<f:if condition="{model.type} == 'machinery'"><f:then>
+    MACHINERY
+</f:then><f:else if="{model.type} == 'news'">
+    NEWS
+</f:else><f:else if="{model.type} == 'search'">
+    SEARCH
+</f:else></f:if>
