@@ -104,7 +104,7 @@ class FluidCallNodeRenderer extends NodeRenderer
             }
             else
             {
-                result+= '>';
+                result+= ' contentAs="caller">';
                 result+= yield configuration.renderer.renderList(node.children, configuration);
                 result+= '</f:render>';
             }

@@ -27,6 +27,7 @@ module.exports =
     FluidSetNodeTenaryRenderer: require('./FluidSetNodeTenaryRenderer.js').FluidSetNodeTenaryRenderer,
     FluidSetNodeRenderer: require('./FluidSetNodeRenderer.js').FluidSetNodeRenderer,
     FluidVariableNodeRenderer: require('./FluidVariableNodeRenderer.js').FluidVariableNodeRenderer,
+    FluidYieldNodeRenderer: require('./FluidYieldNodeRenderer.js').FluidYieldNodeRenderer,
     FluidTextNodeRenderer: require('entoj-system').export.renderer.TextNodeRenderer,
 
     // Fallback
@@ -59,6 +60,7 @@ module.exports =
         require('./FluidSetNodeTenaryRenderer.js').FluidSetNodeTenaryRenderer,
         require('./FluidSetNodeRenderer.js').FluidSetNodeRenderer,
         require('./FluidVariableNodeRenderer.js').FluidVariableNodeRenderer,
+        require('./FluidYieldNodeRenderer.js').FluidYieldNodeRenderer,
         require('entoj-system').export.renderer.TextNodeRenderer
     ]
 };

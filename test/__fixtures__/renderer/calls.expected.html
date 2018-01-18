@@ -1,4 +1,4 @@
 <f:render partial="Elements/Cta" arguments="{text: model.button}" />
-<f:render partial="Modules/Teaser" arguments="{model: self}">children</f:render>
+<f:render partial="Modules/Teaser" arguments="{model: self}" contentAs="caller">children</f:render>
 <f:render partial="Elements/Headline" arguments="{classes: '{moduleName}--check'}" />
 <f:render partial="Elements/Headline" arguments="{level: '{level + 1}'}" />
