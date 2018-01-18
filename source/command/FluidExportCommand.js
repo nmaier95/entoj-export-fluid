@@ -27,7 +27,6 @@ class FluidExportCommand extends ExportCommand
         this._exportName = 'fluid';
         this._moduleConfigurationClass = FluidModuleConfiguration;
         this._exportTaskClass = FluidExportTask;
-        this._loggerPrefix = 'command.export.fluid';
     }
 
 
