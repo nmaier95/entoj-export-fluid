@@ -69,8 +69,8 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
                 moduleClass = yield configuration.renderer.renderNode(argument.value, configuration);
             }
             let result = '';
-            result+= '{f:render(partial: \'Helper/ModuleClassesFilter\', ';
-            result+= 'arguments:{types: ' + types + ', moduleClass: ' + moduleClass + '})}';
+            result+= 'f:render(partial: \'Helper/ModuleClassesFilter\', ';
+            result+= 'arguments:{types: ' + types + ', moduleClass: ' + moduleClass + '})';
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;
