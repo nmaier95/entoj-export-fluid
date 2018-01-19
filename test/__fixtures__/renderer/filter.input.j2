@@ -2,3 +2,6 @@
 {{ model.text|foo('#Lipsum', '#Lorem') }}
 {{ model.text|foo(x)|bar('y') }}
 {{ ['one', two]|foo }}
+{% set result = model.text|foo('#Lipsum', '#Lorem') %}
+{% set result = model.text|foo(x)|bar('y') %}
+{% set result = ['one', two]|foo %}

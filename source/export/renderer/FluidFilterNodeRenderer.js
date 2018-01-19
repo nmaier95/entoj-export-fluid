@@ -48,7 +48,7 @@ class FluidFilterNodeRenderer extends NodeRenderer
         {
             let result = '';
             result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name + '(';
+            result+= ' -> ' + configuration.fluidConfiguration.entojViewHelperNamespace + ':' + node.name + '(';
 
             if (node.arguments)
             {

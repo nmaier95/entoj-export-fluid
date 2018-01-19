@@ -1,4 +1,7 @@
-{model.text -> f:foo()}
-{model.text -> f:foo(param0:'#Lipsum', param1:'#Lorem')}
-{model.text -> f:foo(param0:x) -> f:bar(param0:'y')}
-{{0:'one', 1:two} -> f:foo()}
+{model.text -> e:foo()}
+{model.text -> e:foo(param0:'#Lipsum', param1:'#Lorem')}
+{model.text -> e:foo(param0:x) -> e:bar(param0:'y')}
+{{0:'one', 1:two} -> e:foo()}
+<f:variable name="result" value="{model.text -> e:foo(param0:'#Lipsum', param1:'#Lorem')}" />
+<f:variable name="result" value="{model.text -> e:foo(param0:x) -> e:bar(param0:'y')}" />
+<f:variable name="result" value="{{0:'one', 1:{two}} -> e:foo()}" />

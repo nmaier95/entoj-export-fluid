@@ -51,6 +51,11 @@ class FluidExpressionNodeRenderer extends NodeListRenderer
             {
                 useCurly = true;
             }
+            // use curly when filters are
+            if (node.find('FilterNode'))
+            {
+                useCurly = true;
+            }
             const result = yield configuration.renderer.renderList(node.children, configuration);
             if (useCurly)
             {

@@ -68,6 +68,12 @@ class FluidVariableNodeRenderer extends NodeRenderer
             //result+='>ON<';
             useCurly = true;
         }
+        // When expression and has filters just forget the braces
+        if (node.isChildOf(['ExpressionNode']) &&
+            node.parent.find('FilterNode'))
+        {
+            useCurly = false;
+        }
 
         // Add curly
         if (useCurly)
