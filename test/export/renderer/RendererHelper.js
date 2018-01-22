@@ -15,7 +15,8 @@ module.exports.options = function(dynamic)
             const fluidModuleConfiguration = new FluidModuleConfiguration(global.fixtures.globalConfiguration);
             return new FluidConfiguration(entity, macro, settings, parser, renderer, transformer, globalRepository, buildConfiguration, fluidModuleConfiguration);
         },
-        basePath: FLUID_FIXTURES + '/nodeRenderer'
+        basePath: FLUID_FIXTURES + '/nodeRenderer',
+        rendererClass: require(FLUID_SOURCE + '/export/FluidRenderer.js').FluidRenderer
     };
     if (dynamic === true)
     {

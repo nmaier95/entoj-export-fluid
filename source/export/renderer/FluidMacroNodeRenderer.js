@@ -50,7 +50,7 @@ class FluidMacroNodeRenderer extends NodeRenderer
             const config = yield configuration.getMacroConfiguration(node.name);
             if (config)
             {
-                result+= '<!-- macro ' + node.name + ' default values -->';
+                result+= yield configuration.renderer.renderComment('macro ' + node.name + ' default values');
                 if (config.macro)
                 {
                     for (const parameter of config.macro.parameters)
@@ -81,8 +81,9 @@ class FluidMacroNodeRenderer extends NodeRenderer
             }
 
             // Children
-            result+= '<!-- macro ' + node.name + ' body -->';
+            result+= yield configuration.renderer.renderComment('macro ' + node.name + ' body');
             result+= yield configuration.renderer.renderList(node.children, configuration);
+            result+= yield configuration.renderer.renderComment('macro ' + node.name + ' body end');
 
             return result;
         });

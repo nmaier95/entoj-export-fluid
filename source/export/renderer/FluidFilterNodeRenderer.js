@@ -27,6 +27,24 @@ class FluidFilterNodeRenderer extends NodeRenderer
 
 
     /**
+     * @return {String}
+     */
+    getFiltertName(node, configuration)
+    {
+        return configuration.fluidConfiguration.entojViewHelperNamespace + ':' + node.name;
+    }
+
+
+    /**
+     * @return {String}
+     */
+    getArgumentName(index, argument, configuration)
+    {
+        return argument.name || 'param' + index;
+    }
+
+
+    /**
      * @inheritDocs
      */
     willRender(node, configuration)
@@ -44,18 +62,19 @@ class FluidFilterNodeRenderer extends NodeRenderer
         {
             return Promise.resolve('');
         }
+        const scope = this;
         const promise = co(function*()
         {
             let result = '';
             result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> ' + configuration.fluidConfiguration.entojViewHelperNamespace + ':' + node.name + '(';
+            result+= ' -> ' + scope.getFiltertName(node, configuration) + '(';
 
             if (node.arguments)
             {
                 for (const index of node.arguments.keys())
                 {
                     const argument = node.arguments[index];
-                    result+= argument.name || 'param' + index;
+                    result+= scope.getArgumentName(index, argument, configuration);
                     result+= ':';
                     result+= yield configuration.renderer.renderNode(argument.value, configuration);
                     if (index < node.arguments.length - 1)

@@ -42,7 +42,7 @@ class FluidYieldNodeRenderer extends NodeRenderer
         {
             return Promise.resolve('');
         }
-        return Promise.resolve('{caller}');
+        return Promise.resolve('{caller -> f:format.raw()}');
     }
 }
 

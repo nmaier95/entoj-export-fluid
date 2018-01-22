@@ -11,19 +11,29 @@ const Renderer = require('entoj-system').export.Renderer;
 class FluidRenderer extends Renderer
 {
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get className()
     {
         return 'export/FluidRenderer';
     }
 
+
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get injections()
     {
         return { 'parameters': ['export/FluidRenderer.nodeRenderers', 'export/FluidRenderer.options'] };
+    }
+
+
+    /**
+     * @inheritDoc
+     */
+    renderComment(text, configuration)
+    {
+        return Promise.resolve('<f:comment> ' + text + ' </f:comment>');
     }
 }
 

@@ -24,6 +24,7 @@ module.exports =
     FluidMacroNodeRenderer: require('./FluidMacroNodeRenderer.js').FluidMacroNodeRenderer,
     FluidOperandNodeRenderer: require('./FluidOperandNodeRenderer.js').FluidOperandNodeRenderer,
     FluidOutputNodeRenderer: require('./FluidOutputNodeRenderer.js').FluidOutputNodeRenderer,
+    FluidSetFilterRenderer: require('./FluidSetFilterRenderer.js').FluidSetFilterRenderer,
     FluidSetNodeTenaryRenderer: require('./FluidSetNodeTenaryRenderer.js').FluidSetNodeTenaryRenderer,
     FluidSetNodeRenderer: require('./FluidSetNodeRenderer.js').FluidSetNodeRenderer,
     FluidVariableNodeRenderer: require('./FluidVariableNodeRenderer.js').FluidVariableNodeRenderer,
@@ -40,6 +41,7 @@ module.exports =
         require('./FluidDefaultFilterRenderer.js').FluidDefaultFilterRenderer,
         require('./FluidEmptyFilterRenderer.js').FluidEmptyFilterRenderer,
         require('./FluidModuleClassesFilterRenderer.js').FluidModuleClassesFilterRenderer,
+        require('./FluidSetFilterRenderer.js').FluidSetFilterRenderer,
 
         // Standards
         require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
