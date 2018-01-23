@@ -76,7 +76,7 @@ class FluidSetFilterRenderer extends NodeListRenderer
             let value = '';
             if (filter.arguments.length >= 1)
             {
-                key = yield configuration.renderer.renderNode(filter.arguments[0].value, configuration);
+                key = (yield configuration.renderer.renderNode(filter.arguments[0].value, configuration)).replace(/'/g, '');
             }
             if (filter.arguments.length >= 2)
             {
