@@ -29,3 +29,8 @@
 {settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}
 <f:variable name="result" value="{settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}" />
 <f:variable name="result" value="{settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}" />
+
+{e:translate(key: model.text, extensionName: 'local')}
+{e:translate(key: 'application', extensionName: 'local')}
+<f:variable name="result" value="{e:translate(key: model.text, extensionName: 'local')}" />
+<f:variable name="result" value="{e:translate(key: 'application', extensionName: 'local')}" />
