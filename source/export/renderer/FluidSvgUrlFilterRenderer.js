@@ -7,16 +7,16 @@ const co = require('co');
 
 
 /**
- * Renders |default filter
+ * Renders |mediaQuery filter
  */
-class FluidDefaultFilterRenderer extends NodeListRenderer
+class FluidSvgUrlFilterRenderer extends NodeListRenderer
 {
     /**
      * @inheritDoc
      */
     static get className()
     {
-        return 'export.renderer/FluidDefaultFilterRenderer';
+        return 'export.renderer/FluidSvgUrlFilterRenderer';
     }
 
 
@@ -27,7 +27,7 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
     {
         return Promise.resolve(node &&
             node.is('FilterNode') &&
-            node.name == 'default');
+            node.name == 'svgUrl');
     }
 
 
@@ -42,18 +42,12 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
         }
         const promise = co(function*()
         {
-            let result = '';
-            result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> f:or(alternative:';
-            if (node.arguments.length)
-            {
-                result+= yield configuration.renderer.renderNode(node.arguments[0].value, configuration);
-            }
-            else
-            {
-                result+= '\'\'';
-            }
-            result+= ')';
+            const name = yield configuration.renderer.renderNode(node.value, configuration);
+            // @todo this is rather a hack than a solution.
+            // we are relying on the outer rendering providing a { ... }
+            let result = 'settings.entoj.svgUrl';
+            result+= '}{' + name + '}';
+            result+= '{f:format.raw(\'.svg#icon\')';
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;
@@ -62,4 +56,4 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
 
 
 // Exports
-module.exports.FluidDefaultFilterRenderer = FluidDefaultFilterRenderer;
+module.exports.FluidSvgUrlFilterRenderer = FluidSvgUrlFilterRenderer;

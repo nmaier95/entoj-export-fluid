@@ -26,7 +26,7 @@ class FluidTranslateFilterRenderer extends BaseNodeRenderer
     /**
      * @return {Boolean}
      */
-    isTranslateSet(node, configuration)
+    isSet(node, configuration)
     {
         if (!(node instanceof BaseNode))
         {
@@ -44,7 +44,7 @@ class FluidTranslateFilterRenderer extends BaseNodeRenderer
     /**
      * @return {Promise<Boolean>}
      */
-    isTranslateOutput(node, configuration)
+    isOutput(node, configuration)
     {
         if (!(node instanceof BaseNode))
         {
@@ -62,8 +62,8 @@ class FluidTranslateFilterRenderer extends BaseNodeRenderer
      */
     willRender(node, configuration)
     {
-        return Promise.resolve(this.isTranslateSet(node, configuration) ||
-            this.isTranslateOutput(node, configuration));
+        return Promise.resolve(this.isSet(node, configuration) ||
+            this.isOutput(node, configuration));
     }
 
 
@@ -75,20 +75,9 @@ class FluidTranslateFilterRenderer extends BaseNodeRenderer
         const scope = this;
         const promise = co(function*()
         {
-            let result = '';
-            let key = '';
             const filter = (scope.isTranslateSet(node, configuration)) ? node.value.children[0] : node.children[0];
-            if (filter.configuration &&
-                filter.configuration.children &&
-                filter.configuration.children.length)
-            {
-                key = yield scope.renderer.renderNode(filter.configuration.children[0].value, configuration);
-            }
-            else
-            {
-                key = yield scope.renderer.renderNode(filter.value, configuration);
-            }
-            key = key.replace(/'/g, '');
+            const key = (yield scope.renderer.renderNode(filter.value, configuration)).replace(/'/g, '');
+            let result = '';
             result+= '<f:translate';
             if (scope.isTranslateSet(node, configuration))
             {

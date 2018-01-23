@@ -5,3 +5,27 @@
 {% set result = model.text|foo('#Lipsum', '#Lorem') %}
 {% set result = model.text|foo(x)|bar('y') %}
 {% set result = ['one', two]|foo %}
+
+{{ model.text|default }}
+{{ 'application'|default }}
+{% set result = model.text|default %}
+{% set result = 'application'|default %}
+{{ model.text|default('foo') }}
+{{ 'application'|default('foo') }}
+{% set result = model.text|default('foo') %}
+{% set result = 'application'|default('foo') %}
+
+{{ model.text|mediaQuery }}
+{{ 'application'|mediaQuery }}
+{% set result = model.text|mediaQuery %}
+{% set result = 'application'|mediaQuery %}
+
+{{ model|set('key', 'value') }}
+{{ {}|set('key', 'value')  }}
+{% set result = model|set('key', 'value')  %}
+{% set result = {}|set('key', 'value') %}
+
+{{ model.text|svgUrl }}
+{{ 'application'|svgUrl }}
+{% set result = model.text|svgUrl %}
+{% set result = 'application'|svgUrl %}

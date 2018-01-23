@@ -7,6 +7,10 @@ module.exports =
     FluidDefaultFilterRenderer: require('./FluidDefaultFilterRenderer.js').FluidDefaultFilterRenderer,
     FluidEmptyFilterRenderer: require('./FluidEmptyFilterRenderer.js').FluidEmptyFilterRenderer,
     FluidModuleClassesFilterRenderer: require('./FluidModuleClassesFilterRenderer.js').FluidModuleClassesFilterRenderer,
+    FluidSvgUrlFilterRenderer: require('./FluidSvgUrlFilterRenderer.js').FluidSvgUrlFilterRenderer,
+    FluidSetFilterRenderer: require('./FluidSetFilterRenderer.js').FluidSetFilterRenderer,
+    FluidMediaQueryFilterRenderer: require('./FluidMediaQueryFilterRenderer.js').FluidMediaQueryFilterRenderer,
+    FluidImageUrlFilterRenderer: require('./FluidImageUrlFilterRenderer.js').FluidImageUrlFilterRenderer,
 
     // Standards
     FluidArrayNodeRenderer: require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
@@ -24,7 +28,6 @@ module.exports =
     FluidMacroNodeRenderer: require('./FluidMacroNodeRenderer.js').FluidMacroNodeRenderer,
     FluidOperandNodeRenderer: require('./FluidOperandNodeRenderer.js').FluidOperandNodeRenderer,
     FluidOutputNodeRenderer: require('./FluidOutputNodeRenderer.js').FluidOutputNodeRenderer,
-    FluidSetFilterRenderer: require('./FluidSetFilterRenderer.js').FluidSetFilterRenderer,
     FluidSetNodeTenaryRenderer: require('./FluidSetNodeTenaryRenderer.js').FluidSetNodeTenaryRenderer,
     FluidSetNodeRenderer: require('./FluidSetNodeRenderer.js').FluidSetNodeRenderer,
     FluidVariableNodeRenderer: require('./FluidVariableNodeRenderer.js').FluidVariableNodeRenderer,
@@ -42,6 +45,9 @@ module.exports =
         require('./FluidEmptyFilterRenderer.js').FluidEmptyFilterRenderer,
         require('./FluidModuleClassesFilterRenderer.js').FluidModuleClassesFilterRenderer,
         require('./FluidSetFilterRenderer.js').FluidSetFilterRenderer,
+        require('./FluidMediaQueryFilterRenderer.js').FluidMediaQueryFilterRenderer,
+        require('./FluidSvgUrlFilterRenderer.js').FluidSvgUrlFilterRenderer,
+        require('./FluidImageUrlFilterRenderer.js').FluidImageUrlFilterRenderer,
 
         // Standards
         require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,

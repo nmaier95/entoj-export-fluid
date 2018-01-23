@@ -7,16 +7,16 @@ const co = require('co');
 
 
 /**
- * Renders |default filter
+ * Renders |mediaQuery filter
  */
-class FluidDefaultFilterRenderer extends NodeListRenderer
+class FluidMediaQueryFilterRenderer extends NodeListRenderer
 {
     /**
      * @inheritDoc
      */
     static get className()
     {
-        return 'export.renderer/FluidDefaultFilterRenderer';
+        return 'export.renderer/FluidMediaQueryFilterRenderer';
     }
 
 
@@ -27,7 +27,7 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
     {
         return Promise.resolve(node &&
             node.is('FilterNode') &&
-            node.name == 'default');
+            node.name == 'mediaQuery');
     }
 
 
@@ -42,18 +42,16 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
         }
         const promise = co(function*()
         {
-            let result = '';
-            result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> f:or(alternative:';
-            if (node.arguments.length)
+            const name = yield configuration.renderer.renderNode(node.value, configuration);
+            let result = 'settings.entoj.mediaQueries';
+            if (node.value.is('LiteralNode'))
             {
-                result+= yield configuration.renderer.renderNode(node.arguments[0].value, configuration);
+                result+= '.' + name;
             }
             else
             {
-                result+= '\'\'';
+                result+= '.{' + name + '}';
             }
-            result+= ')';
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;
@@ -62,4 +60,4 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
 
 
 // Exports
-module.exports.FluidDefaultFilterRenderer = FluidDefaultFilterRenderer;
+module.exports.FluidMediaQueryFilterRenderer = FluidMediaQueryFilterRenderer;

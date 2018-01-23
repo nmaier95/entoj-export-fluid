@@ -1,68 +1,115 @@
 'use strict';
 
-/**
- * Requirements
- * @ignore
- */
-const FluidFilterNodeRenderer = require('./FluidFilterNodeRenderer.js').FluidFilterNodeRenderer;
+// Requirements
+const NodeListRenderer = require('entoj-system').export.renderer.NodeListRenderer;
+const ErrorHandler = require('entoj-system').error.ErrorHandler;
+const co = require('co');
 
 
 /**
- * Renders the set/setProperty filter
+ * Renders |setProperty/|set filter
  */
-class FluidSetFilterRenderer extends FluidFilterNodeRenderer
+class FluidSetFilterRenderer extends NodeListRenderer
 {
     /**
      * @inheritDoc
      */
     static get className()
     {
-        return 'transformer.noderenderer.fluid/FluidSetFilterRenderer';
+        return 'export.renderer/FluidSetFilterRenderer';
     }
 
 
     /**
-     * @inheritDoc
+     * @return {Boolean}
      */
-    getFiltertName(node, configuration)
+    isSet(node, configuration)
     {
-        return configuration.fluidConfiguration.entojViewHelperNamespace + ':setProperty';
+        return node &&
+               node.is('SetNode') &&
+               node.value &&
+               node.value.is('ExpressionNode') &&
+               node.value.children.length === 1 &&
+               node.value.children[0].is('FilterNode') &&
+               (node.value.children[0].name == 'set' || node.value.children[0].name == 'setProperty');
     }
 
 
     /**
-     * @inheritDoc
+     * @return {Promise<Boolean>}
      */
-    getArgumentName(index, argument, configuration)
+    isOutput(node, configuration)
     {
-        switch(index)
-        {
-            case 0:
-                return 'key';
-
-            case 1:
-                return 'value';
-
-            default:
-                return argument.name || 'param' + index;
-        }
+        return node &&
+               node.is('OutputNode') &&
+               node.children.length === 1 &&
+               node.children[0].is('FilterNode') &&
+               (node.children[0].name == 'set' || node.children[0].name == 'setProperty');
     }
 
 
     /**
-     * @inheritDoc
+     * @return {Promise<Boolean>}
      */
     willRender(node, configuration)
     {
-        return Promise.resolve(node &&
-            node.is('FilterNode') &&
-            (node.name == 'set' || node.name == 'setProperty'));
+        return Promise.resolve(this.isSet(node, configuration) ||
+            this.isOutput(node, configuration));
+    }
+
+
+    /**
+     * @return {Promise<String>}
+     */
+    render(node, configuration)
+    {
+        if (!node || !configuration)
+        {
+            return Promise.resolve('');
+        }
+        const scope = this;
+        const promise = co(function*()
+        {
+            const filter = (scope.isSet(node, configuration)) ? node.value.children[0] : node.children[0];
+            const name = yield configuration.renderer.renderNode(filter.value, configuration);
+            let key = '';
+            let value = '';
+            if (filter.arguments.length >= 1)
+            {
+                key = yield configuration.renderer.renderNode(filter.arguments[0].value, configuration);
+            }
+            if (filter.arguments.length >= 2)
+            {
+                value = yield configuration.renderer.renderNode(filter.arguments[1].value, configuration);
+            }
+
+            let result = '';
+            if (scope.isSet(node))
+            {
+                result+= '<' + configuration.fluidConfiguration.entojViewHelperNamespace + ':setProperty ';
+                result+= 'name="' + name + '" ';
+                result+= 'key="' + key + '" ';
+                result+= 'value="' + value + '"';
+                result+= ' />';
+            }
+            else
+            {
+                result+= '{';
+                result+= yield configuration.renderer.renderNode(filter.value, configuration);
+                result+= ' -> ' + configuration.fluidConfiguration.entojViewHelperNamespace + ':setProperty(';
+                result+= 'name: \'' + name + '\', ';
+                result+= 'key: ' + key + ', ';
+                result+= 'value: ' + value;
+                result+= ')';
+                result+= '}';
+            }
+
+            return result;
+        }).catch(ErrorHandler.handler(this));
+        return promise;
     }
 }
 
 
-/**
- * Exports
- * @ignore
- */
+// Exports
 module.exports.FluidSetFilterRenderer = FluidSetFilterRenderer;

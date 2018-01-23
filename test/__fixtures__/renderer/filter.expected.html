@@ -5,3 +5,27 @@
 <f:variable name="result" value="{model.text -> e:foo(param0:'#Lipsum', param1:'#Lorem')}" />
 <f:variable name="result" value="{model.text -> e:foo(param0:x) -> e:bar(param0:'y')}" />
 <f:variable name="result" value="{{0:'one', 1:{two}} -> e:foo()}" />
+
+{model.text -> f:or(alternative:'')}
+{application -> f:or(alternative:'')}
+<f:variable name="result" value="{model.text -> f:or(alternative:'')}" />
+<f:variable name="result" value="{application -> f:or(alternative:'')}" />
+{model.text -> f:or(alternative:'foo')}
+{application -> f:or(alternative:'foo')}
+<f:variable name="result" value="{model.text -> f:or(alternative:'foo')}" />
+<f:variable name="result" value="{application -> f:or(alternative:'foo')}" />
+
+{settings.entoj.mediaQueries.{model.text}}
+{settings.entoj.mediaQueries.application}
+<f:variable name="result" value="{settings.entoj.mediaQueries.{model.text}}" />
+<f:variable name="result" value="{settings.entoj.mediaQueries.application}" />
+
+{model -> e:setProperty(name: 'model', key: 'key', value: 'value')}
+{{  } -> e:setProperty(name: '{  }', key: 'key', value: 'value')}
+<e:setProperty name="model" key="'key'" value="'value'" />
+<e:setProperty name="{  }" key="'key'" value="'value'" />
+
+{settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}
+{settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}
+<f:variable name="result" value="{settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}" />
+<f:variable name="result" value="{settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}" />
