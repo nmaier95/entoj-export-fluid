@@ -11,6 +11,7 @@ module.exports =
     FluidSetFilterRenderer: require('./FluidSetFilterRenderer.js').FluidSetFilterRenderer,
     FluidMediaQueryFilterRenderer: require('./FluidMediaQueryFilterRenderer.js').FluidMediaQueryFilterRenderer,
     FluidImageUrlFilterRenderer: require('./FluidImageUrlFilterRenderer.js').FluidImageUrlFilterRenderer,
+    FluidTranslateFilterRenderer: require('./FluidTranslateFilterRenderer.js').FluidTranslateFilterRenderer,
 
     // Standards
     FluidArrayNodeRenderer: require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
@@ -48,6 +49,7 @@ module.exports =
         require('./FluidMediaQueryFilterRenderer.js').FluidMediaQueryFilterRenderer,
         require('./FluidSvgUrlFilterRenderer.js').FluidSvgUrlFilterRenderer,
         require('./FluidImageUrlFilterRenderer.js').FluidImageUrlFilterRenderer,
+        require('./FluidTranslateFilterRenderer.js').FluidTranslateFilterRenderer,
 
         // Standards
         require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,

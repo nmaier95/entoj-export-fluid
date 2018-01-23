@@ -28,6 +28,7 @@ class FluidModuleConfiguration extends Base
         this._exportPath = globalConfiguration.get('fluid.exportPath', '${cache}/fluid/export');
         this._builtinViewHelperNamespace = globalConfiguration.get('fluid.builtinViewHelperNamespace', 'f');
         this._entojViewHelperNamespace = globalConfiguration.get('fluid.entojViewHelperNamespace', 'e');
+        this._translationExtension = globalConfiguration.get('fluid.translationExtension', 'local');
     }
 
 
@@ -79,6 +80,17 @@ class FluidModuleConfiguration extends Base
     get entojViewHelperNamespace()
     {
         return this._entojViewHelperNamespace;
+    }
+
+
+    /**
+     * The TYPO3 extension used for translation strings
+     *
+     * @type {String}
+     */
+    get translationExtension()
+    {
+        return this._translationExtension;
     }
 }
 
