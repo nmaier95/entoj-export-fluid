@@ -21,9 +21,9 @@
 {% set result = 'application'|mediaQuery %}
 
 {{ model|set('key', 'value') }}
-{{ {}|set('key', 'value')  }}
+{{ {}|set('key', value)  }}
 {% set result = model|set('key', 'value')  %}
-{% set result = {}|set('key', 'value') %}
+{% set result = {}|set('key', value) %}
 
 {{ model.text|svgUrl }}
 {{ 'application'|svgUrl }}

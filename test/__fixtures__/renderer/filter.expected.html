@@ -21,9 +21,9 @@
 <f:variable name="result" value="{settings.entoj.mediaQueries.application}" />
 
 {model -> e:setProperty(name: 'model', key: key, value: 'value')}
-{{  } -> e:setProperty(name: '{  }', key: key, value: 'value')}
-<e:setProperty name="model" key="key" value="'value'" />
-<e:setProperty name="{  }" key="key" value="'value'" />
+{{  } -> e:setProperty(name: '{  }', key: key, value: value)}
+<e:setProperty name="model" key="key" value="value" />
+<e:setProperty name="{  }" key="key" value="{value}" />
 
 {settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}
 {settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}

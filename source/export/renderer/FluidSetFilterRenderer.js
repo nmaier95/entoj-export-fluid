@@ -86,6 +86,15 @@ class FluidSetFilterRenderer extends NodeListRenderer
             let result = '';
             if (scope.isSet(node))
             {
+                // handle expressions and literals for tags
+                if (value.startsWith('\''))
+                {
+                    value = value.replace(/'/g, '');
+                }
+                else
+                {
+                    value = '{' + value + '}';
+                }
                 result+= '<' + configuration.fluidConfiguration.entojViewHelperNamespace + ':setProperty ';
                 result+= 'name="' + name + '" ';
                 result+= 'key="' + key + '" ';
