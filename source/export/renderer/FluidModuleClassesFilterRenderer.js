@@ -27,7 +27,7 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
      */
     createAdditionalFiles(configuration)
     {
-        const result = '{moduleClass} <f:for each="{types as array}" as="type"><f:if condition="{type}">{moduleClass}--{type} </f:if></f:for>';
+        const result = '{moduleClass} <' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':for each="{types as array}" as="type"><' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':if condition="{type}">{moduleClass}--{type} </' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':if></' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':for>';
         const file = new VinylFile(
             {
                 path: 'Resources/Private/Partials/Helper/ModuleClassesFilter.html',
@@ -69,7 +69,7 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
                 moduleClass = yield configuration.renderer.renderNode(argument.value, configuration);
             }
             let result = '';
-            result+= 'f:render(partial: \'Helper/ModuleClassesFilter\', ';
+            result+= '' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':render(partial: \'Helper/ModuleClassesFilter\', ';
             result+= 'arguments:{types: ' + types + ', moduleClass: ' + moduleClass + '})';
             return result;
         }).catch(ErrorHandler.handler(this));

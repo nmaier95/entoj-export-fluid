@@ -46,12 +46,12 @@ class FluidBlockNodeRenderer extends NodeRenderer
         const promise = co(function*()
         {
             let result = '';
-            result+= '<f:section name="' + node.name + '">';
+            result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':section name="' + node.name + '">';
             if (node.children && node.children.length)
             {
                 result+= yield configuration.renderer.renderList(node.children, configuration);
             }
-            result+= '</f:section>';
+            result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':section>';
             return result;
         });
         return promise;

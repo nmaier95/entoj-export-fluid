@@ -72,7 +72,7 @@ class FluidCallNodeRenderer extends NodeRenderer
             {
                 throw new MissingConfigurationError('CallNodeRenderer::render - no configuration for macro ' + node.name + ' found.');
             }
-            result+= '<f:render partial="' + config.partial.replace('Partials/', '') + '"';
+            result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':render partial="' + config.partial.replace('Partials/', '') + '"';
             if (node.arguments)
             {
                 result+= ' arguments="{';
@@ -106,7 +106,7 @@ class FluidCallNodeRenderer extends NodeRenderer
             {
                 result+= ' contentAs="caller">';
                 result+= yield configuration.renderer.renderList(node.children, configuration);
-                result+= '</f:render>';
+                result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':render>';
             }
             return result;
         });

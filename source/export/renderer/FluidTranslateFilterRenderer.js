@@ -24,7 +24,7 @@ class FluidTranslateFilterRenderer extends FluidFilterNodeRenderer
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     willRender(node, configuration)
     {
@@ -51,7 +51,7 @@ class FluidTranslateFilterRenderer extends FluidFilterNodeRenderer
                 key = '\'' + key + '\'';
             }
             let result = '';
-            result+= 'f:translate(';
+            result+= '' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':translate(';
             result+= 'key: ' + key;
             result+= ', extensionName: \'' + configuration.fluidConfiguration.translationExtension + '\'';
             result+= ')';

@@ -48,7 +48,7 @@ class FluidForNodeRenderer extends NodeRenderer
             let result = '';
 
             // Create iteration
-            result+= '<f:for as="' + node.valueName + '"';
+            result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':for as="' + node.valueName + '"';
             if (node.keyName)
             {
                 result+= ' key="' + node.keyName + '"';
@@ -61,7 +61,7 @@ class FluidForNodeRenderer extends NodeRenderer
             result+= yield configuration.renderer.renderList(node.children, configuration);
 
             // End Iteration
-            result+= '</f:for>';
+            result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':for>';
 
             return result;
         });

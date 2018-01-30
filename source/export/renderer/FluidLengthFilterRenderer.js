@@ -38,7 +38,7 @@ class FluidLengthFilterRenderer extends FluidFilterNodeRenderer
      */
     getFiltertName(node, configuration)
     {
-        return 'f:count';
+        return '' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':count';
     }
 
 }

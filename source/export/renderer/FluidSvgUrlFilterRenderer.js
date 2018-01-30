@@ -47,7 +47,7 @@ class FluidSvgUrlFilterRenderer extends NodeListRenderer
             // we are relying on the outer rendering providing a { ... }
             let result = 'settings.entoj.svgUrl';
             result+= '}{' + name + '}';
-            result+= '{f:format.raw(\'.svg#icon\')';
+            result+= '{' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':format.raw(\'.svg#icon\')';
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;

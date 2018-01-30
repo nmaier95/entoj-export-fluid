@@ -63,36 +63,36 @@ class FluidIfNodeRenderer extends NodeRenderer
             // if .... else if .... else
             else
             {
-                result+= '<f:if condition="';
+                result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':if condition="';
                 result+= yield configuration.renderer.renderNode(node.condition, configuration);
                 result+= '">';
                 if (node.elseChildren.length || node.elseIfChildren.length)
                 {
-                    result+= '<f:then>';
+                    result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':then>';
                 }
                 result+= yield configuration.renderer.renderList(node.children, configuration);
                 if (node.elseChildren.length || node.elseIfChildren.length)
                 {
-                    result+= '</f:then>';
+                    result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':then>';
                 }
                 if (node.elseIfChildren.length)
                 {
                     for (const elseIfNode of node.elseIfChildren)
                     {
-                        result+= '<f:else if="';
+                        result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':else if="';
                         result+= yield configuration.renderer.renderNode(elseIfNode.condition, configuration);
                         result+= '">';
                         result+= yield configuration.renderer.renderList(elseIfNode.children, configuration);
-                        result+= '</f:else>';
+                        result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':else>';
                     }
                 }
                 if (node.elseChildren.length)
                 {
-                    result+= '<f:else>';
+                    result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':else>';
                     result+= yield configuration.renderer.renderList(node.elseChildren, configuration);
-                    result+= '</f:else>';
+                    result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':else>';
                 }
-                result+= '</f:if>';
+                result+= '</' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':if>';
             }
             return result;
         });

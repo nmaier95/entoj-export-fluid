@@ -44,7 +44,7 @@ class FluidDefaultFilterRenderer extends NodeListRenderer
         {
             let result = '';
             result+= yield configuration.renderer.renderNode(node.value, configuration);
-            result+= ' -> f:or(alternative:';
+            result+= ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':or(alternative:';
             if (node.arguments.length)
             {
                 result+= yield configuration.renderer.renderNode(node.arguments[0].value, configuration);

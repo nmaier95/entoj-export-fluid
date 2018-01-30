@@ -38,7 +38,7 @@ class FluidSafeFilterRenderer extends FluidFilterNodeRenderer
      */
     getFiltertName(node, configuration)
     {
-        return 'f:format.raw';
+        return '' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':format.raw';
     }
 
 

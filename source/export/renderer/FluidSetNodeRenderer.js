@@ -44,7 +44,7 @@ class FluidSetNodeRenderer extends NodeRenderer
         const promise = co(function*()
         {
             let result = '';
-            result+= '<f:variable';
+            result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':variable';
             result+= ' name="';
             result+= yield configuration.renderer.renderNode(node.variable, configuration);
             result+= '" value="';

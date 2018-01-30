@@ -58,7 +58,7 @@ class FluidMacroNodeRenderer extends NodeRenderer
                         if (parameter.name === 'model')
                         {
                             // Disabled for now
-                            //result+= '<f:variable name="model" value="{model -> f:or(alternative: data)}" />';
+                            //result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':variable name="model" value="{model -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':or(alternative: data)}" />';
                         }
                         else
                         {
@@ -73,7 +73,7 @@ class FluidMacroNodeRenderer extends NodeRenderer
                                 {
                                     defaultValue = '\'' + trimQuotes(defaultValue) + '\'';
                                 }
-                                result+= '<f:variable name="' + parameter.name + '" value="{' + parameter.name + ' -> f:or(alternative: ' + defaultValue + ')}" />';
+                                result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':variable name="' + parameter.name + '" value="{' + parameter.name + ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':or(alternative: ' + defaultValue + ')}" />';
                             }
                         }
                     }
