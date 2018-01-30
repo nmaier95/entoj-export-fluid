@@ -19,7 +19,7 @@ class FluidTranslateFilterRenderer extends FluidFilterNodeRenderer
      */
     static get className()
     {
-        return 'transformer.noderenderer.fluid/FluidTranslateFilterRenderer';
+        return 'export.renderer/FluidTranslateFilterRenderer';
     }
 
 
@@ -51,7 +51,7 @@ class FluidTranslateFilterRenderer extends FluidFilterNodeRenderer
                 key = '\'' + key + '\'';
             }
             let result = '';
-            result+= configuration.fluidConfiguration.entojViewHelperNamespace + ':translate(';
+            result+= 'f:translate(';
             result+= 'key: ' + key;
             result+= ', extensionName: \'' + configuration.fluidConfiguration.translationExtension + '\'';
             result+= ')';
