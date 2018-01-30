@@ -30,10 +30,10 @@
 <f:variable name="result" value="{settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}" />
 <f:variable name="result" value="{settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}" />
 
-{e:translate(key: model.text, extensionName: 'local')}
-{e:translate(key: 'application', extensionName: 'local')}
-<f:variable name="result" value="{e:translate(key: model.text, extensionName: 'local')}" />
-<f:variable name="result" value="{e:translate(key: 'application', extensionName: 'local')}" />
+{f:translate(key: model.text, extensionName: 'local')}
+{f:translate(key: 'application', extensionName: 'local')}
+<f:variable name="result" value="{f:translate(key: model.text, extensionName: 'local')}" />
+<f:variable name="result" value="{f:translate(key: 'application', extensionName: 'local')}" />
 
 {model.text -> f:format.raw()}
 {application -> f:format.raw()}
