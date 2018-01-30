@@ -34,3 +34,8 @@
 {e:translate(key: 'application', extensionName: 'local')}
 <f:variable name="result" value="{e:translate(key: model.text, extensionName: 'local')}" />
 <f:variable name="result" value="{e:translate(key: 'application', extensionName: 'local')}" />
+
+{model.text -> f:format.raw()}
+{application -> f:format.raw()}
+<f:variable name="mq" value="{model.text -> f:format.raw()}" />
+<f:variable name="mq" value="{application -> f:format.raw()}" />

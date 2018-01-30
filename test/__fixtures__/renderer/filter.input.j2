@@ -34,3 +34,8 @@
 {{ 'application'|translate }}
 {% set result = model.text|translate %}
 {% set result = 'application'|translate %}
+
+{{ model.text|safe }}
+{{ 'application'|safe }}
+{% set mq = model.text|safe %}
+{% set mq = 'application'|safe %}
