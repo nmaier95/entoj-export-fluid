@@ -30,7 +30,7 @@ class FluidModuleClassesFilterRenderer extends NodeListRenderer
         const result = '{moduleClass} <' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':for each="{types as array}" as="type"><' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':if condition="{type}">{moduleClass}--{type} </' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':if></' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':for>';
         const file = new VinylFile(
             {
-                path: 'Resources/Private/' + configuration.fluidConfiguration.partialIncludePath + 'Helper/ModuleClassesFilter.html',
+                path: 'Resources/Private/' + configuration.fluidConfiguration.partialFilePath + 'Helper/ModuleClassesFilter.html',
                 contents: new Buffer(result)
             });
         return Promise.resolve([file]);
