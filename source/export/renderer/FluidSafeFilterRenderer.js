@@ -5,8 +5,6 @@
  * @ignore
  */
 const FluidFilterNodeRenderer = require('./FluidFilterNodeRenderer.js').FluidFilterNodeRenderer;
-const ErrorHandler = require('entoj-system').error.ErrorHandler;
-const co = require('co');
 
 
 /**
