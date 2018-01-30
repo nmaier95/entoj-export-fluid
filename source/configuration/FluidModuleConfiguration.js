@@ -29,11 +29,17 @@ class FluidModuleConfiguration extends Base
         this._builtinViewHelperNamespace = globalConfiguration.get('fluid.builtinViewHelperNamespace', 'f');
         this._entojViewHelperNamespace = globalConfiguration.get('fluid.entojViewHelperNamespace', 'e');
         this._translationExtension = globalConfiguration.get('fluid.translationExtension', 'local');
+        this._contentElementFilePath = globalConfiguration.get('fluid.contentElementFilePath', 'Templates/ContentElement/');
+        this._contentElementIncludePath = globalConfiguration.get('fluid.contentElementIncludePath', 'Templates/ContentElement/');
+        this._partialFilePath = globalConfiguration.get('fluid.partialFilePath', 'Partials/');
+        this._partialIncludePath = globalConfiguration.get('fluid.partialIncludePath', 'Partials/');
+        this._layoutFilePath = globalConfiguration.get('fluid.layoutFilePath', 'Layouts/Page/');
+        this._layoutIncludePath = globalConfiguration.get('fluid.layoutIncludePath', 'Layouts/Page/');
     }
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get injections()
     {
@@ -42,7 +48,7 @@ class FluidModuleConfiguration extends Base
 
 
     /**
-     * @inheritDocss
+     * @inheritDoc
      */
     static get className()
     {
@@ -91,6 +97,72 @@ class FluidModuleConfiguration extends Base
     get translationExtension()
     {
         return this._translationExtension;
+    }
+
+
+    /**
+     * The file path to ContentElement inside of Resources/Private
+     *
+     * @type {String}
+     */
+    get contentElementFilePath()
+    {
+        return this._contentElementFilePath;
+    }
+
+
+    /**
+     * The include path to ContentElement inside of Resources/Private
+     *
+     * @type {String}
+     */
+    get contentElementIncludePath()
+    {
+        return this._contentElementIncludePath;
+    }
+
+
+    /**
+     * The file path to Partials inside of Resources/Private
+     *
+     * @type {String}
+     */
+    get partialFilePath()
+    {
+        return this._partialFilePath;
+    }
+
+
+    /**
+     * The include path to Partials inside of Resources/Private
+     *
+     * @type {String}
+     */
+    get partialIncludePath()
+    {
+        return this._partialIncludePath;
+    }
+
+
+    /**
+     * The file path to Layouts inside of Resources/Private
+     *
+     * @type {String}
+     */
+    get layoutFilePath()
+    {
+        return this._layoutFilePath;
+    }
+
+
+    /**
+     * The include path to Layouts inside of Resources/Private
+     *
+     * @type {String}
+     */
+    get layoutIncludePath()
+    {
+        return this._layoutIncludePath;
     }
 }
 
