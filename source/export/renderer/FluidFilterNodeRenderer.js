@@ -66,9 +66,21 @@ class FluidFilterNodeRenderer extends NodeRenderer
         const promise = co(function*()
         {
             let result = '';
+
+            // Open curly?
+            let useCurly = false;
+            // When condition
+            if (node.isChildOf(['ConditionNode']))
+            {
+                //result+='>CN<';
+                useCurly = true;
+            }
+            if (useCurly)
+            {
+                result+= '{';
+            }
             result+= yield configuration.renderer.renderNode(node.value, configuration);
             result+= ' -> ' + scope.getFiltertName(node, configuration) + '(';
-
             if (node.arguments)
             {
                 for (const index of node.arguments.keys())
@@ -83,8 +95,11 @@ class FluidFilterNodeRenderer extends NodeRenderer
                     }
                 }
             }
-
             result+= ')';
+            if (useCurly)
+            {
+                result+= '}';
+            }
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;

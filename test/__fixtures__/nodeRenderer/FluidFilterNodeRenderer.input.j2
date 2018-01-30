@@ -2,3 +2,4 @@
 {{ model.text|foo('#Lipsum', 2) }}
 {{ model.text|foo('x')|bar('y') }}
 {{ ['one', two]|foo }}
+{% if model|empty %}EMPTY{% endif %}

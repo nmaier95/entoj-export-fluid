@@ -7,3 +7,4 @@
 {% elif model.type == 'search' %}
     SEARCH
 {% endif %}
+{% if text|trim != '' %}TEXT{% endif %}

@@ -74,6 +74,12 @@ class FluidVariableNodeRenderer extends NodeRenderer
         {
             useCurly = false;
         }
+        // When condition and has filters just forget the braces
+        if (node.isChildOf(['ConditionNode']) &&
+            node.parent.find('FilterNode'))
+        {
+            useCurly = false;
+        }
 
         // Add curly
         if (useCurly)

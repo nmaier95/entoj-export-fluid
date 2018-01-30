@@ -51,7 +51,7 @@ class FluidExpressionNodeRenderer extends NodeListRenderer
             {
                 useCurly = true;
             }
-            // use curly when filters are
+            // use curly when filters are used
             if (node.find('FilterNode'))
             {
                 useCurly = true;
