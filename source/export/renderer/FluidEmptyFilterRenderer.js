@@ -52,9 +52,20 @@ class FluidEmptyFilterRenderer extends NodeListRenderer
             {
                 result+= '!';
             }
-            //result+= '{';
+
+            const isChildOfCondition = node.isChildOf(['ConditionNode']);
+            if(isChildOfCondition)
+            {
+                result+= '{';
+            }
+            
             result+= yield configuration.renderer.renderNode(node.value, configuration);
-            //result+= '}';
+            
+            if(isChildOfCondition)
+            {
+                result+= '}';
+            }
+
             return result;
         }).catch(ErrorHandler.handler(this));
         return promise;
