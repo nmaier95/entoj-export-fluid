@@ -39,3 +39,8 @@
 {application -> f:format.raw()}
 <f:variable name="mq" value="{model.text -> f:format.raw()}" />
 <f:variable name="mq" value="{application -> f:format.raw()}" />
+
+{model.text -> f:count()}
+{application -> f:count()}
+<f:variable name="mq" value="{model.text -> f:count()}" />
+<f:variable name="mq" value="{application -> f:count()}" />
