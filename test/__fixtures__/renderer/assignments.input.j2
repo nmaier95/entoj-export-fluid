@@ -2,3 +2,4 @@
 {% set model.nr = model.id + 1 %}
 {% set simple = 1.5 %}
 {% set className = moduleClass if type else 'default' %}
+{% set className = { foo: 'bar', bar: foo } %}
