@@ -8,3 +8,5 @@
     SEARCH
 {% endif %}
 {% if text|trim != '' %}TEXT{% endif %}
+{% if model.copy == true %}TEXT{% endif %}
+{% if model.copy == false %}TEXT{% endif %}

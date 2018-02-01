@@ -50,6 +50,10 @@ class FluidLiteralNodeRenderer extends NodeRenderer
         {
             result+= node.value.replace(/"/g, '\\"');
         }
+        else if(node.valueType == 'boolean')
+        {
+            node.value === true ? result+= '1' : result+= '0';
+        }
         else
         {
             result+= node.value;
