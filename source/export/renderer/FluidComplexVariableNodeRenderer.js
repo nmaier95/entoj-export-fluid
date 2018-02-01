@@ -6,6 +6,9 @@
  */
 const NodeRenderer = require('entoj-system').export.renderer.NodeRenderer;
 const isPlainObject = require('lodash.isplainobject');
+const Node = require('entoj-system').export.ast.Node;
+const waitForPromise = require('entoj-system').utils.synchronize.waitForPromise;
+
 
 
 /**
@@ -51,8 +54,13 @@ class FluidComplexVariableNodeRenderer extends NodeRenderer
             }
 
             let result = '';
+            // Node
+            if (data instanceof Node)
+            {
+                result+= waitForPromise(configuration.renderer.renderNode(data, configuration));
+            }
             // Object
-            if (isPlainObject(data))
+            else if (isPlainObject(data))
             {
                 const keys = Object.keys(data);
                 for (let index = 0; index < keys.length; index++)
