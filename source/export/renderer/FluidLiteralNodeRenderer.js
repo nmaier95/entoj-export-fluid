@@ -52,7 +52,7 @@ class FluidLiteralNodeRenderer extends NodeRenderer
         }
         else if(node.valueType == 'boolean')
         {
-            node.value === true ? result+= 1 : result+= 0;
+            node.value === true ? result+= '1' : result+= '0';
         }
         else
         {
