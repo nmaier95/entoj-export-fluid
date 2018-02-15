@@ -93,17 +93,18 @@ class FluidVariableNodeRenderer extends NodeRenderer
         if (node.isChildOf('ForNode') && node.fields[0] === 'loop' && node.fields.length === 2)
         {
             result+= 'loop.';
-            if (node.fields[1] === 'length')
+
+            const map = {
+                'length': 'total',
+                'first': 'isFirst',
+                'last': 'isLast',
+                'index': 'count',
+                'index0': 'index'
+            };
+
+            if(map.hasOwnProperty(node.fields[1]))
             {
-                result+= 'total';
-            }
-            else if (node.fields[1] === 'first')
-            {
-                result+= 'isFirst';
-            }
-            else if (node.fields[1] === 'last')
-            {
-                result+= 'isLast';
+                result+= map[node.fields[1]];
             }
             else
             {
