@@ -25,10 +25,10 @@
 <e:setProperty name="model" key="key" value="value" />
 <e:setProperty name="{  }" key="key" value="{value}" />
 
-{settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}
-{settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}
-<f:variable name="result" value="{settings.entoj.svgUrl}{model.text}{f:format.raw('.svg#icon')}" />
-<f:variable name="result" value="{settings.entoj.svgUrl}{application}{f:format.raw('.svg#icon')}" />
+{settings.entoj.svgUrl}{model.text}{f:format.raw(value: '.svg#icon')}
+{settings.entoj.svgUrl}{application}{f:format.raw(value: '.svg#icon')}
+<f:variable name="result" value="{settings.entoj.svgUrl}{model.text}{f:format.raw(value: '.svg#icon')}" />
+<f:variable name="result" value="{settings.entoj.svgUrl}{application}{f:format.raw(value: '.svg#icon')}" />
 
 {f:translate(key: model.text, extensionName: 'local')}
 {f:translate(key: 'application', extensionName: 'local')}

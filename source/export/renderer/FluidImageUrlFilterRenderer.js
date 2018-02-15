@@ -36,6 +36,9 @@ class FluidImageUrlFilterRenderer extends FluidFilterNodeRenderer
 
             case 2:
                 return 'height';
+                
+            case 3:
+                return 'crop';
 
             default:
                 return argument.name || 'param' + index;
