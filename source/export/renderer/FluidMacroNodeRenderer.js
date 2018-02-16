@@ -73,6 +73,11 @@ class FluidMacroNodeRenderer extends NodeRenderer
                                 {
                                     defaultValue = '\'' + trimQuotes(defaultValue) + '\'';
                                 }
+                                else if(parameter.type[0] == 'Boolean')
+                                {
+                                    //same logic as if it was a literal-node of type boolean
+                                    defaultValue = defaultValue ? '1' : '0';
+                                }
                                 result+= '<' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':variable name="' + parameter.name + '" value="{' + parameter.name + ' -> ' + configuration.fluidConfiguration.builtinViewHelperNamespace + ':or(alternative: ' + defaultValue + ')}" />';
                             }
                         }
