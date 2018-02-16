@@ -98,7 +98,7 @@ class FluidVariableNodeRenderer extends NodeRenderer
                 'length': 'total',
                 'first': 'isFirst',
                 'last': 'isLast',
-                'index': 'count',
+                'index': 'cycle',
                 'index0': 'index'
             };
 
