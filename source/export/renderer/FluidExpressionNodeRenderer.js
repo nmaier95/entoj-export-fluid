@@ -45,7 +45,7 @@ class FluidExpressionNodeRenderer extends NodeListRenderer
         }
         const promise = co(function*()
         {
-            let useCurly = false;
+            let useCurly = false;            
             // use curly when operands with numbers are used
             if (node.find('OperandNode') && node.find('LiteralNode', { valueType: 'number' }))
             {
@@ -56,6 +56,14 @@ class FluidExpressionNodeRenderer extends NodeListRenderer
             {
                 useCurly = true;
             }
+            // use curly when tag and only one variable
+            if (node.parent.is('ArgumentNode') &&
+                node.isChildOf('TagNode') &&
+                node.children.length == 1 &&
+                node.find('VariableNode'))
+            {
+                useCurly = true;
+            }            
             const result = yield configuration.renderer.renderList(node.children, configuration);
             if (useCurly)
             {

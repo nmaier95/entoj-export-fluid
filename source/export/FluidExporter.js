@@ -21,9 +21,9 @@ class FluidExporter extends Exporter
     /**
      * @ignore
      */
-    constructor(globalRepository, buildConfiguration, fluidConfiguration, renderer, transformer)
+    constructor(globalRepository, buildConfiguration, fluidConfiguration, parser, renderer, transformer)
     {
-        super(globalRepository, buildConfiguration, new JinjaParser(), renderer, transformer);
+        super(globalRepository, buildConfiguration, parser, renderer, transformer);
 
         // Check params
         assertParameter(this, 'fluidConfiguration', fluidConfiguration, true, FluidModuleConfiguration);
@@ -48,7 +48,7 @@ class FluidExporter extends Exporter
      */
     static get injections()
     {
-        return { 'parameters': [GlobalRepository, BuildConfiguration, FluidModuleConfiguration, FluidRenderer, FluidTransformer] };
+        return { 'parameters': [GlobalRepository, BuildConfiguration, FluidModuleConfiguration, JinjaParser, FluidRenderer, FluidTransformer] };
     }
 
 

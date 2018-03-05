@@ -15,6 +15,9 @@ module.exports =
     FluidSafeFilterRenderer: require('./FluidSafeFilterRenderer.js').FluidSafeFilterRenderer,
     FluidLengthFilterRenderer: require('./FluidLengthFilterRenderer.js').FluidLengthFilterRenderer,
 
+    // Tags
+    FluidTagNodeRenderer: require('./FluidTagNodeRenderer.js').FluidTagNodeRenderer,
+
     // Standards
     FluidArrayNodeRenderer: require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
     FluidBlockNodeRenderer: require('./FluidBlockNodeRenderer.js').FluidBlockNodeRenderer,
@@ -54,6 +57,9 @@ module.exports =
         require('./FluidTranslateFilterRenderer.js').FluidTranslateFilterRenderer,
         require('./FluidSafeFilterRenderer.js').FluidSafeFilterRenderer,
         require('./FluidLengthFilterRenderer.js').FluidLengthFilterRenderer,
+
+        // Tags
+        require('./FluidTagNodeRenderer.js').FluidTagNodeRenderer,
 
         // Standards
         require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,

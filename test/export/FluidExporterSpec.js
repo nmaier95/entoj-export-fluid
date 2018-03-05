@@ -7,6 +7,7 @@ const FluidExporter = require(FLUID_SOURCE + '/export/FluidExporter.js').FluidEx
 const FluidRenderer = require(FLUID_SOURCE + '/export/FluidRenderer.js').FluidRenderer;
 const FluidTransformer = require(FLUID_SOURCE + '/export/FluidTransformer.js').FluidTransformer;
 const FluidModuleConfiguration = require(FLUID_SOURCE + '/configuration/FluidModuleConfiguration.js').FluidModuleConfiguration;
+const JinjaParser = require('entoj-system').export.parser.JinjaParser;
 const exporterSpec = require('entoj-system/test').export.ExporterShared;
 const projectFixture = require('entoj-system/test').fixture.project;
 
@@ -37,18 +38,20 @@ describe(FluidExporter.className, function()
         };
         const fixture = projectFixture.createDynamic(options);
         const moduleConfiguration = fixture.context.di.create(FluidModuleConfiguration);
+        const jinjaParser = fixture.context.di.create(JinjaParser);
         const fluidRenderer = fixture.context.di.create(FluidRenderer);
         const fluidTransformer = fixture.context.di.create(FluidTransformer);
         if (parameters && parameters.length)
         {
             parameters.push(moduleConfiguration);
+            parameters.push(jinjaParser);
             parameters.push(fluidRenderer);
             parameters.push(fluidTransformer);
             return parameters;
         }
         else
         {
-            return [fixture.globalRepository, fixture.buildConfiguration, moduleConfiguration, fluidRenderer, fluidTransformer];
+            return [fixture.globalRepository, fixture.buildConfiguration, moduleConfiguration, jinjaParser, fluidRenderer, fluidTransformer];
         }
     }
 

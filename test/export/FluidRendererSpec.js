@@ -31,7 +31,8 @@ describe(FluidRenderer.className, function()
         'should render loops': 'loops',
         'should render filter': 'filter',
         'should render assignments': 'assignments',
-        'should render calls': 'calls'
+        'should render calls': 'calls',
+        'should render tags': 'tags'        
         //,'should render special constructs': 'specials'
     };
     const options =

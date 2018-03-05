@@ -20,7 +20,7 @@ const waitForPromise = require('entoj-system').utils.synchronize.waitForPromise;
 class FluidComplexVariableNodeRenderer extends NodeRenderer
 {
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get className()
     {
@@ -29,7 +29,7 @@ class FluidComplexVariableNodeRenderer extends NodeRenderer
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     willRender(node, configuration)
     {
@@ -38,7 +38,7 @@ class FluidComplexVariableNodeRenderer extends NodeRenderer
 
 
     /**
-     * @inheritDocs
+     * @inheritDoc
      */
     render(node, configuration)
     {
