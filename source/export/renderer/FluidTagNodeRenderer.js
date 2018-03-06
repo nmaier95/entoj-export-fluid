@@ -78,7 +78,7 @@ class FluidTagNodeRenderer extends NodeRenderer
                         result+= name;
                         result+= '="';
                         result+= yield configuration.renderer.renderNode(argument.value, configuration);
-                        result+= '"';    
+                        result+= '"';
                     }
                 }
             }            

@@ -17,6 +17,12 @@ module.exports =
 
     // Tags
     FluidTagNodeRenderer: require('./FluidTagNodeRenderer.js').FluidTagNodeRenderer,
+    FluidFormInputTagRenderer: require('./FluidFormInputTagRenderer.js').FluidFormInputTagRenderer,
+    FluidFormSelectTagRenderer: require('./FluidFormSelectTagRenderer.js').FluidFormSelectTagRenderer,
+    FluidFormTextareaTagRenderer: require('./FluidFormTextareaTagRenderer.js').FluidFormTextareaTagRenderer,
+    FluidFormRadioTagRenderer: require('./FluidFormRadioTagRenderer.js').FluidFormRadioTagRenderer,
+    FluidLinkTagRenderer: require('./FluidLinkTagRenderer.js').FluidLinkTagRenderer,
+    FluidButtonTagRenderer: require('./FluidButtonTagRenderer.js').FluidButtonTagRenderer,
 
     // Standards
     FluidArrayNodeRenderer: require('./FluidArrayNodeRenderer.js').FluidArrayNodeRenderer,
@@ -59,6 +65,12 @@ module.exports =
         require('./FluidLengthFilterRenderer.js').FluidLengthFilterRenderer,
 
         // Tags
+        require('./FluidFormInputTagRenderer.js').FluidFormInputTagRenderer,
+        require('./FluidFormSelectTagRenderer.js').FluidFormSelectTagRenderer,
+        require('./FluidFormRadioTagRenderer.js').FluidFormRadioTagRenderer,
+        require('./FluidFormTextareaTagRenderer.js').FluidFormTextareaTagRenderer,
+        require('./FluidLinkTagRenderer.js').FluidLinkTagRenderer,
+        require('./FluidButtonTagRenderer.js').FluidButtonTagRenderer,
         require('./FluidTagNodeRenderer.js').FluidTagNodeRenderer,
 
         // Standards
