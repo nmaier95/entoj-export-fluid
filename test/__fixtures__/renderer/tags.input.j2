@@ -1,0 +1,32 @@
+{% html %}{% endhtml %}
+{% html class='a_class\', id=10 %}{% endhtml %}
+{% html %}Children{% endhtml %}
+
+
+{% button %}text{% endbutton %}
+{% button name='yes_no' %}text{% endbutton %}
+{% button name='yes_no', disabled=true %}text{% endbutton %}
+{% button name='yes_no', disabled=false %}text{% endbutton %}
+
+
+{% form_input %}{% input %}
+{% input name='yes_no' %}
+
+
+{% radio type='radio', name='yes_no' %}
+{% radio type='radio', name='yes_no', disabled=true %}
+
+
+{% form_select %}{% endform_select %}
+{% select %}{% endselect %}
+{% select name='yes_no' %}{% endselect %}
+{% select name='yes_no' %}Hey, children!{% endselect %}
+{% select options={ one: \'One\', two: \'Two\' } %}{% endselect %}
+{% select %}
+    <option>lorem</option>
+{% endselect %}
+
+
+{% checkbox type='checkbox', name='yes_no' %}
+{% checkbox type='checkbox', name='yes_no', disabled=true %}
+{% checkbox type='checkbox', name='yes_no', required=true %}

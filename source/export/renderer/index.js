@@ -21,6 +21,7 @@ module.exports =
     FluidFormSelectTagRenderer: require('./FluidFormSelectTagRenderer.js').FluidFormSelectTagRenderer,
     FluidFormTextareaTagRenderer: require('./FluidFormTextareaTagRenderer.js').FluidFormTextareaTagRenderer,
     FluidFormRadioTagRenderer: require('./FluidFormRadioTagRenderer.js').FluidFormRadioTagRenderer,
+    FluidFormCheckboxTagRenderer: require('./FluidFormCheckboxTagRenderer.js').FluidFormCheckboxTagRenderer,
     FluidLinkTagRenderer: require('./FluidLinkTagRenderer.js').FluidLinkTagRenderer,
     FluidButtonTagRenderer: require('./FluidButtonTagRenderer.js').FluidButtonTagRenderer,
 
@@ -69,6 +70,7 @@ module.exports =
         require('./FluidFormSelectTagRenderer.js').FluidFormSelectTagRenderer,
         require('./FluidFormRadioTagRenderer.js').FluidFormRadioTagRenderer,
         require('./FluidFormTextareaTagRenderer.js').FluidFormTextareaTagRenderer,
+        require('./FluidFormCheckboxTagRenderer.js').FluidFormCheckboxTagRenderer,
         require('./FluidLinkTagRenderer.js').FluidLinkTagRenderer,
         require('./FluidButtonTagRenderer.js').FluidButtonTagRenderer,
         require('./FluidTagNodeRenderer.js').FluidTagNodeRenderer,
