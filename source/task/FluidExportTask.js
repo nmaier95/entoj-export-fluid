@@ -8,7 +8,7 @@ const FluidExporter = require('../export/FluidExporter.js').FluidExporter;
 const ExportTask = require('entoj-system').task.ExportTask;
 const GlobalRepository = require('entoj-system').model.GlobalRepository;
 const CliLogger = require('entoj-system').cli.CliLogger;
-const BuildConfiguration = require('entoj-system').model.configuration.BuildConfiguration;
+const EntitiesRepository = require('entoj-system').model.entity.EntitiesRepository;
 
 
 /**
@@ -17,23 +17,12 @@ const BuildConfiguration = require('entoj-system').model.configuration.BuildConf
 class FluidExportTask extends ExportTask
 {
     /**
-     * @param {cli.CliLogger} cliLogger
-     * @param {model.GlobalRepository} globalRepository
-     */
-    constructor(cliLogger, globalRepository, buildConfiguration, fluidExporter)
-    {
-        super(cliLogger, globalRepository, fluidExporter);
-    }
-
-
-    /**
-     * @inheritDocs
+     * @inheritDoc
      */
     static get injections()
     {
-        return { 'parameters': [CliLogger, GlobalRepository, BuildConfiguration, FluidExporter] };
+        return { 'parameters': [CliLogger, EntitiesRepository, GlobalRepository, FluidExporter] };
     }
-
 
     /**
      * @inheritDocs
