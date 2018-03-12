@@ -44,7 +44,7 @@ class FluidFormInputTagRenderer extends FluidTagNodeRenderer
      */
     getTagName(node, configuration)
     {
-        return configuration.fluidConfiguration.builtinViewHelperNamespace + ':form.input';
+        return configuration.fluidConfiguration.builtinViewHelperNamespace + ':form.textfield';
     }    
 
 
