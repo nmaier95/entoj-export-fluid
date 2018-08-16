@@ -39,8 +39,39 @@ class FluidTagNodeRenderer extends NodeRenderer
      */
     getTagName(node, configuration)
     {
-        return configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name;
-    }    
+        let name = node.name;
+        switch (node.name)
+        {
+            case 'FormTextareaTag':
+                name = 'form.textarea';
+                break;
+
+            case 'FormSelectTag':
+                name = 'form.select';
+                break;
+
+            case 'FormRadioTag':
+                name = 'form.radio';
+                break;
+
+            case 'FormInputTag':
+                name = 'form.textfield';
+                break;
+
+            case 'FormTag':
+                name = 'form';
+                break;
+
+            case 'FormCheckboxTag':
+                name = 'form.checkbox';
+                break;
+
+            case 'LinkTag':
+                name = 'link.typolink';
+                break;
+        }
+        return configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + name;
+    }
 
 
     /**
@@ -48,7 +79,7 @@ class FluidTagNodeRenderer extends NodeRenderer
      */
     willRender(node, configuration)
     {
-        return Promise.resolve(node && 
+        return Promise.resolve(node &&
             node.is('TagNode'));
     }
 
@@ -78,10 +109,10 @@ class FluidTagNodeRenderer extends NodeRenderer
                         result+= name;
                         result+= '="';
                         result+= yield configuration.renderer.renderNode(argument.value, configuration);
-                        result+= '"';    
+                        result+= '"';
                     }
                 }
-            }            
+            }
             result+= '>';
             result+= yield configuration.renderer.renderList(node.children, configuration);
             result+= '</' + scope.getTagName(node, configuration) + '>';
