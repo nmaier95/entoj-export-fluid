@@ -30,6 +30,10 @@ class FluidTagNodeRenderer extends NodeRenderer
      */
     getArgumentName(index, argument, configuration)
     {
+        if(argument.name === 'href')
+        {
+            return 'parameter';
+        }
         return argument.name || 'param' + index;
     }
 
