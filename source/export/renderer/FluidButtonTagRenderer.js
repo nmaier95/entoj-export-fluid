@@ -5,7 +5,6 @@
  * @ignore
  */
 const FluidTagNodeRenderer = require('./FluidTagNodeRenderer.js').FluidTagNodeRenderer;
-const co = require('co');
 
 
 /**
