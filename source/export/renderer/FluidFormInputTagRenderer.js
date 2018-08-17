@@ -29,11 +29,6 @@ class FluidFormInputTagRenderer extends FluidTagNodeRenderer
      */
     getArgumentName(index, argument, configuration)
     {
-        //argument.name ist der parameter name übergeben im entoj template beim aufruf des tags
-        // if (argument.name == 'class')
-        // {
-        //     return 'foo';
-        // }
         return argument.name || 'param' + index;
     }
 

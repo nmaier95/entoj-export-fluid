@@ -43,38 +43,7 @@ class FluidTagNodeRenderer extends NodeRenderer
      */
     getTagName(node, configuration)
     {
-        let name = node.name;
-        switch (node.name)
-        {
-            case 'FormTextareaTag':
-                name = 'form.textarea';
-                break;
-
-            case 'FormSelectTag':
-                name = 'form.select';
-                break;
-
-            case 'FormRadioTag':
-                name = 'form.radio';
-                break;
-
-            case 'FormInputTag':
-                name = 'form.textfield';
-                break;
-
-            case 'FormTag':
-                name = 'form';
-                break;
-
-            case 'FormCheckboxTag':
-                name = 'form.checkbox';
-                break;
-
-            case 'LinkTag':
-                name = 'link.typolink';
-                break;
-        }
-        return configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + name;
+        return configuration.fluidConfiguration.builtinViewHelperNamespace + ':' + node.name;
     }
 
 
